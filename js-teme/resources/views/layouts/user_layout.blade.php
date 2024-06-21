@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角形のパーティクルアニメーション</title>
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/back.css') }}">
+    @section('css')
 </head>
 <body>
     <header class="header">
@@ -35,11 +40,12 @@
             </div>
         </div>
     </header>
-
+    <canvas id="particleCanvas"></canvas>
     @section('content')
         @yield('content')
-    @endsection
+
 
     <script src="{{ asset('/js/header.js') }}"></script>
+    <script src="{{ asset('/js/back.js') }}"></script>
 </body>
 </html>
