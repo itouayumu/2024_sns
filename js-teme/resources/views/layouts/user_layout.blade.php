@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<link rel="stylesheet" href="{{ asset('/css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
 </head>
 <body>
     <header class="header">
-    <img src="{{ asset('storage/img/SNS_rogo.png') }}" alt="logo" class="logo" width="150px" height="auto">
-    <button type="buttton">検索</button>
-        <p class="title"><a href="top"></a></p>
-
-        <div class=menu>
-            
+        <img src="{{ asset('storage/img/SNS_rogo.png') }}" alt="logo" class="logo" width="150px" height="auto">
+        <div class="header-right">
+            <button id="modalOpen" class="button">Click Me</button>
+            <img class="icon" src="{{ asset('storage/img/test_icon.jpg') }}" alt="ユーザーアイコン">
         </div>
-
-
+        <div id="easyModal" class="modal">
+            <span class="modalClose"></span>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="header-left">
+                        <h1 class="header-title"><span style="color: #FF69B4;">G</span><span style="color: #00FFFF;">A</span><span style="color: #FFD700;">M</span><span style="color: #FF69B4;">E</span><span style="color: #00FFFF;">R</span><span style="color: #FFD700;">S</span><span style="color: #FF69B4;">!!</span></h1>
+                    </div>
+                    <div class="header-center">
+                        <form>
+                            <input type="text" placeholder="Search...">
+                            <select>
+                                <option value="1">ユーザー</option>
+                                <option value="2">投稿</option>
+                                <option value="3">コミュニティ</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="header-right">
+                        <button id="modalOpenInner" class="button">Click Me</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
-@section('content')
-    
-            @yield('content')
 
+    @section('content')
+        @yield('content')
+    @endsection
 
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 </html>
