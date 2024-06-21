@@ -5,8 +5,8 @@
 @section('css')
 
 @section('content')
-    <p>toppage</p>
-
-    @endsection
-
-
+<p>post</p>
+<a href="/login">ログイン</a>
+<a href="/register">登録</a>
+<a href="post">投稿</a>
+@endsection
