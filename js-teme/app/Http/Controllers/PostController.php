@@ -11,22 +11,21 @@ class PostController extends Controller
 {
     public function post_action(Request $request)
     {
-        $user = Auth::user();
-        $user_id = $user->id;
         if ($request->hasFile('img') && $request->file('img')->isValid()) {
             $path = $request->file('img')->store('public/images');
-            $imgPath = Storage::url($path);
         } else {
-            $imgPath = null;
+            $path = null;
         }
 
         $param = [
-            'user_id' => $user_id,
-            'content' => $request->content,
-            'img' => $imgPath,
+            'user_id' => Auth::id(),
+            'content' => $request->input('content'),
+            'img' => $path,
         ];
 
-        DB::table('posts')->insert($param);
+        DB::table('post')->insert($param);
+
+
         return redirect('/index');
     }
 }

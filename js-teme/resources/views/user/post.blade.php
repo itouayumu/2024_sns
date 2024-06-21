@@ -7,9 +7,9 @@
 <p>toppage</p>
 <a href="/index">top</a>
 {{$user_id}}
-<form action="/post_action" method="post">
+<form action="{{ route('post_action') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    <input type="text" name="content">
+    <input type=" text" name="content">
     <input type="file" name="img">
     <input type="submit" value="投稿">
 </form>

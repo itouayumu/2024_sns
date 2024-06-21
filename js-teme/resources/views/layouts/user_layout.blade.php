@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
 </head>
+
 <body>
     <header class="header">
         <img src="{{ asset('storage/img/SNS_rogo.png') }}" alt="logo" class="logo" width="150px" height="auto">
@@ -37,9 +39,10 @@
     </header>
 
     @section('content')
-        @yield('content')
-    @endsection
+    @yield('content')
+
 
     <script src="{{ asset('/js/header.js') }}"></script>
 </body>
+
 </html>
