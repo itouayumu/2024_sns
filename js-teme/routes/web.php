@@ -12,5 +12,5 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('index', [testcontroller::class, 'index']);
 Route::get('/post', [testcontroller::class, 'post']);
-Route::post('/post_action', [PostController::class, 'post_action']);
+Route::post('/post_action', [PostController::class, 'post_action'])->name('post_action');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
