@@ -5,6 +5,7 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('/css/top.css') }}">
 @section('content')
+
 <div class="container">
         <div class="sidebar">
             <div class="recommended-communities">
@@ -128,4 +129,11 @@
             </div>
         </div>
     </div>
+
+
+<p>post</p>
+<a href="/login">ログイン</a>
+<a href="/register">登録</a>
+<a href="post">投稿</a>
+
     @endsection

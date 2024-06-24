@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('/css/back.css') }}">
     @yield('css')
 </head>
+
 <body>
     <div class="layout">
 
@@ -41,13 +43,16 @@
                     </div>
                 </div>
             </div>
+
         </header>
     </div>
     @yield('content')
     
     
     <canvas id="particleCanvas"></canvas>
+
     <script src="{{ asset('/js/header.js') }}"></script>
     <script src="{{ asset('/js/back.js') }}"></script>
 </body>
+
 </html>
