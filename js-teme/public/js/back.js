@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const colors = ['rgba(255, 0, 0, 0.5)', 'rgba(0, 255, 255, 0.5)', 'rgba(128, 0, 128, 0.5)', 'rgba(255, 255, 0, 0.5)'];
+const colors = ['rgba(255, 0, 0, 0.3)', 'rgba(0, 255, 255, 0.25)', 'rgba(128, 0, 128, 0.2)', 'rgba(255, 255, 0, 0.15)'];
 const particles = [];
 const particleCount = 20;
 
