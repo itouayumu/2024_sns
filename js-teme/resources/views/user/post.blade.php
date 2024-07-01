@@ -2,15 +2,26 @@
 
 @section('title','Index')
 @section('css')
-
+<link rel="stylesheet" href="{{ asset('/css/post.css') }}">
 @section('content')
-<p>toppage</p>
-<a href="/index">top</a>
-{{$user_id}}
-<form action="{{ route('post_action') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('post_action') }}" method="POST" enctype="multipart/form-data" class="form">
     @csrf
-    <input type=" text" name="content">
-    <input type="file" name="img">
-    <input type="submit" value="投稿">
+    <div class="form1">
+        <textarea name="content"></textarea>
+        <div class="img">
+            <input type="file" name="img" onchange="previewFile(this);">
+        </div>
+        <button type="submit">投稿</button>
+    </div>
+    <div class="form2">
+        <div class="img-bg">
+            <img id="preview" class="img_datareg"alt="画像を添付してください" width="200px" height="200px">
+        </div>
+    </div>
+
+
+
+                <script src="{{ asset('/js/image.js') }}"></script>
+
 </form>
 @endsection

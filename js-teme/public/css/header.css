@@ -9,6 +9,10 @@ body {
 .layout{
   position: fixed;
   width: 100%;
+  top: 0%;
+}
+.main{
+  margin-top: 100px;
 }
 .header {
   display: flex;
@@ -49,7 +53,7 @@ body {
   height: 70px;
   width: auto;
   border-radius: 50px;
-  margin-left: 10px; /* ボタンとの間にスペースを追加 */
+  margin-left: 10px; 
 }
 
 .button {
@@ -109,4 +113,12 @@ body {
 .modal-body {
   padding: 10px 20px;
   color: black;
+}
+#particleCanvas{
+  position: fixed;
+  z-index: -10;
+}
+#modalOpenInner{
+  position: relative;
+  left: 90%;
 }

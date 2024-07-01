@@ -1,8 +1,7 @@
-// back.js
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
+canvas.width = window.innerWidth * 0.9;
 canvas.height = window.innerHeight;
 
 const colors = ['rgba(255, 0, 0, 0.3)', 'rgba(0, 255, 255, 0.25)', 'rgba(128, 0, 128, 0.2)', 'rgba(255, 255, 0, 0.15)'];
@@ -67,6 +66,6 @@ function animate() {
 animate();
 
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
+    canvas.width = window.innerWidth * 0.9;
     canvas.height = window.innerHeight;
 });
