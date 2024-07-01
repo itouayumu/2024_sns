@@ -15,7 +15,7 @@ class testcontroller extends Controller
             $user_id = $user->id;
             return view('user.top', ['user_id' => $user_id]);
         } else {
-            return view('user.login');
+            return view('auth.login');
         }
     }
     public function login(){

@@ -27,12 +27,11 @@
 
     <div class="sidebar">
         <div class="recommended-communities">
-            <h2>おすすめのコミュニティ</h2>
+            <h2>おすすめのユーザー</h2>
             <ul>
-            <li class="topic">
-                    <img src="path/to/icon.png" alt="アイコン" class="community-icon">
-                    <span>pso2(ship3)コミュニティ</span>
-                    <span class="members-count">20人参加中</span>
+                <li class="topic">
+                    <img src="http://127.0.0.1:8000/storage/img/test_icon.jpg" alt="アイコン" class="community-icon">
+                    <span>名無しさん</span>
                 </li>
                 <!-- 同様のリストアイテムが続く -->
             </ul>
