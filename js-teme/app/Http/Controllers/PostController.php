@@ -26,6 +26,6 @@ class PostController extends Controller
         DB::table('post')->insert($param);
 
 
-        return redirect('/index');
+        return redirect('/home');
     }
 }
