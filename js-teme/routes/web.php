@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\testcontroller;
 use App\Http\Controllers\PostController;
@@ -7,7 +6,7 @@ use App\Http\Controllers\CreateCommunityController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.top');
 });
 
 Auth::routes();

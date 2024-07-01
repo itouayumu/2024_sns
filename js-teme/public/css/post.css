@@ -1,0 +1,25 @@
+.form{
+    display: flex;
+}
+.form1 {
+	position: relative;
+	width: 50%;
+	margin: 40px 3%;
+}
+.form1 textarea {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 450px;
+    height: 350px;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 5px solid #1b2538;
+	border-radius: 4px;
+    resize: none; 
+}
+.form1 textarea:focus {
+	border: 5px solid #ff00f7;
+	outline: none;
+}
