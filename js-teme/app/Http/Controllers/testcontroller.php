@@ -9,19 +9,9 @@ use App\Models\Post;
 
 class testcontroller extends Controller
 {
-    public function index()
+
+    public function login()
     {
-        $user = Auth::user();
-        if ($user) {
-            $posts = Post::where('delete_flag', false)
-                ->orderBy('created_at', 'desc')
-                ->get();
-            return view('user.top', ['posts' => $posts]);
-        } else {
-            return redirect('/login');
-        }
-    }
-    public function login(){
         return view('auth.login');
     }
 

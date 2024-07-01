@@ -41,6 +41,6 @@ class CreateCommunityController extends Controller
         DB::table('community')->insert($param);
 
 
-        return redirect('/index');
+        return redirect('/home');
     }
 }
