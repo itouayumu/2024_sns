@@ -38,8 +38,9 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
-            <form action="" method="post">
-                <textarea name="post-content" id="post-content" cols="30" rows="10" placeholder="今何してます？"></textarea>
+            <form action="{{ route('post_action') }}" method="POST" enctype="multipart/form-data" class="form">
+                @csrf
+                <textarea name="content" id="post-content" cols="30" rows="10" placeholder="今何してます？"></textarea>
                 <img id="preview" class="img_datareg" width="200px" height="200px">
                 <label>
                     <span class="filelabel" title="ファイルを選択">
@@ -47,7 +48,7 @@
                     </span>
                     <input type="file" id="hidn" name="img" onchange="previewFile(this);">
                 </label>
-                <button class="postbutton2">投稿</button>
+                <button type="submit" class="postbutton2">投稿</button>
             </form>
         </div>
     </div>
