@@ -47,85 +47,25 @@
     </div>
     <div class="main-content">
         <div class="timeline">
+            @if($posts->isEmpty())
+            <p>ポストがありません投稿してみましょう</p>
+            @else
+            @foreach($posts as $post)
             <div class="post">
                 <div class="user-info">
                     <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
                     <div>
-                        <span class="username">ユーザー名</span>
+                        <span class="username">{{ $post->user->name }}</span>
                         <span class="user-id">ユーザーID</span>
                     </div>
-                    <span class="post-date">投稿日</span>
+                    <span class="post-date">{{ $post->created_at }}</span>
                 </div>
                 <div class="post-content">
-                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
+                    <p>{{ $post->content }}</p>
                 </div>
             </div>
-
-            <div class="post">
-                <div class="user-info">
-                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
-                    <div>
-                        <span class="username">ユーザー名</span>
-                        <span class="user-id">ユーザーID</span>
-                    </div>
-                    <span class="post-date">投稿日</span>
-                </div>
-                <div class="post-content">
-                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
-                </div>
-            </div>
-            <div class="post">
-                <div class="user-info">
-                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
-                    <div>
-                        <span class="username">ユーザー名</span>
-                        <span class="user-id">ユーザーID</span>
-                    </div>
-                    <span class="post-date">投稿日</span>
-                </div>
-                <div class="post-content">
-                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
-                </div>
-            </div>
-            <div class="post">
-                <div class="user-info">
-                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
-                    <div>
-                        <span class="username">ユーザー名</span>
-                        <span class="user-id">ユーザーID</span>
-                    </div>
-                    <span class="post-date">投稿日</span>
-                </div>
-                <div class="post-content">
-                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
-                </div>
-            </div>
-            <div class="post">
-                <div class="user-info">
-                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
-                    <div>
-                        <span class="username">ユーザー名</span>
-                        <span class="user-id">ユーザーID</span>
-                    </div>
-                    <span class="post-date">投稿日</span>
-                </div>
-                <div class="post-content">
-                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
-                </div>
-            </div>
-            <div class="post">
-                <div class="user-info">
-                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
-                    <div>
-                        <span class="username">ユーザー名</span>
-                        <span class="user-id">ユーザーID</span>
-                    </div>
-                    <span class="post-date">投稿日</span>
-                </div>
-                <div class="post-content">
-                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
-                </div>
-            </div>
+            @endforeach
+            @endif
         </div>
     </div>
 </div>
