@@ -17,13 +17,16 @@
                     <span>pso2(ship3)コミュニティ</span>
                     <span class="members-count">20人参加中</span>
                 </li>
+
                 <!-- 同様のリストアイテムが続く -->
+
             </ul>
         </div>
         <div class="menu-icons">
             <span class="icon">💬</span>
             <span class="icon">👤</span>
             <span class="icon">🔔</span>
+
         </div>
     </div>
     
@@ -45,8 +48,24 @@
         </div>
     </div>
     
+
     <div class="main-content">
         <div class="timeline">
+            <div class="post">
+                <div class="user-info">
+                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+                    <div>
+                        <span class="username">ユーザー名</span>
+                        <span class="user-id">ユーザーID</span>
+
+                    </div>
+                    <span class="post-date">投稿日</span>
+                </div>
+                <div class="post-content">
+                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
+                </div>
+            </div>
+
             <div class="post">
                 <div class="user-info">
                     <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
@@ -60,11 +79,66 @@
                     <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
                 </div>
             </div>
+            <div class="post">
+                <div class="user-info">
+                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+                    <div>
+                        <span class="username">ユーザー名</span>
+                        <span class="user-id">ユーザーID</span>
+                    </div>
+                    <span class="post-date">投稿日</span>
+                </div>
+                <div class="post-content">
+                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
+                </div>
+            </div>
+            <div class="post">
+                <div class="user-info">
+                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+                    <div>
+                        <span class="username">ユーザー名</span>
+                        <span class="user-id">ユーザーID</span>
+                    </div>
+                    <span class="post-date">投稿日</span>
+                </div>
+                <div class="post-content">
+                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
+                </div>
+            </div>
+            <div class="post">
+                <div class="user-info">
+                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+                    <div>
+                        <span class="username">ユーザー名</span>
+                        <span class="user-id">ユーザーID</span>
+                    </div>
+                    <span class="post-date">投稿日</span>
+                </div>
+                <div class="post-content">
+                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
+                </div>
+            </div>
+            <div class="post">
+                <div class="user-info">
+                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+                    <div>
+                        <span class="username">ユーザー名</span>
+                        <span class="user-id">ユーザーID</span>
+                    </div>
+                    <span class="post-date">投稿日</span>
+                </div>
+
+                <div class="post-content">
+                    <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
+                </div>
+            </div>
             <!-- 同様のポストが続く -->
         </div>
     </div>
 </div>
+
 <span id="openModalBtn" class="plus-button icon"><span class="text">➕</span></span>
 <script src="{{ asset('/js/image.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 @endsection
+
