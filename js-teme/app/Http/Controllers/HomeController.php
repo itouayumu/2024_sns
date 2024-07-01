@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Community;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +28,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.top');
+        $user = Auth::user();
+        if ($user) {
+            $posts = Post::where('delete_flag', false)
+                ->orderBy('created_at', 'desc')
+                ->get();
+            $community = Community::where('delete_flag', false)
+                ->orderBy('created_at', 'desc')
+                ->get();
+            return view('user.top', ['posts' => $posts, 'community' => $community]);
+        } else {
+            return redirect('/login');
+        }
     }
 }

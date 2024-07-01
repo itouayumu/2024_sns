@@ -7,9 +7,34 @@
 @endsection
 
 @section('content')
-    
+<div class="container">
+    <div class="sidebar">
+        <div class="recommended-communities">
+            <h2>おすすめのコミュニティ</h2>
+            <ul>
+                <li>
+                    @if($community->isEmpty())
+                    <p>コミュニティがありません。作成してみましょう</p>
+                    @else
+                    @foreach($community as $communitys)
+                    <img src="path/to/icon.png" alt="アイコン" class="community-icon">
+                    <span>{{$communitys->community_name}}</span>
+                    <span class="members-count">20人参加中</span>
+                    @endforeach
+                    @endif
+                </li>
 
- 
+                <!-- 同様のリストアイテムが続く -->
+
+            </ul>
+        </div>
+        <div class="menu-icons">
+            <span class="icon">💬</span>
+            <span class="icon">👤</span>
+            <span class="icon">🔔</span>
+        </div>
+    </div>
+
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
@@ -26,27 +51,38 @@
             </form>
         </div>
     </div>
- 
-    <div class="timeline">
-        <div class="post">
-            <div class="user-info">
-                <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
-                <div>
-                    <span class="username">ユーザー名</span>
-                    <span class="user-id">ユーザーID</span>
-                </div>
-                <span class="post-date">投稿日</span>
-            </div>
-            <div class="post-content">
-                <p>フリーテキストや長めのコンテンツが入るため、適度なサイズのエリアを確保しています。</p>
-            </div>
-        </div>
-        <!-- 同様のポストが続く -->
-    </div>
 
-    <span id="openModalBtn" class="plus-button icon"><span class="text">➕</span></span>
-    <script src="http://127.0.0.1:8000/js/image.js"></script>
-    <script src="http://127.0.0.1:8000/js/app.js"></script>
-    <canvas id="particleCanvas"></canvas>
-    <script src="http://127.0.0.1:8000/js/header.js"></script>
+
+    <div class="main-content">
+        <div class="timeline">
+            @if($posts->isEmpty())
+            <p>ポストがありません投稿してみましょう</p>
+            @else
+            @foreach($posts as $post)
+            <div class="post">
+                <div class="user-info">
+                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+                    <div>
+                        <span class="username">{{ $post->user->name }}</span>
+                        <span class="user-id">ユーザーID</span>
+
+                    </div>
+                    <span class="post-date">{{ $post->created_at }}</span>
+                </div>
+                <div class="post-content">
+                    <p>{{ $post->content }}</p>
+                </div>
+            </div>
+
+            @endforeach
+            @endif
+            <a href="/community">コミュニティ作成</a>
+            <!-- 同様のポストが続く -->
+        </div>
+    </div>
+</div>
+
+<span id="openModalBtn" class="plus-button icon"><span class="text">➕</span></span>
+<script src="{{ asset('/js/image.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 @endsection

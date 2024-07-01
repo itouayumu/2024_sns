@@ -5,19 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class testcontroller extends Controller
 {
-    public function index()
-    {
-        $user = Auth::user();
-        if ($user) {
-            $user_id = $user->id;
-            return view('user.top', ['user_id' => $user_id]);
-        } else {
-            return view('auth.login');
-        }
-    }
+
     public function login(){
         return view('auth.login');
     }

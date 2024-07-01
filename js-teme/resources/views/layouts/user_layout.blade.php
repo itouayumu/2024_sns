@@ -20,53 +20,39 @@
 
             <div class="header-right">
                 <button id="modalOpen" class="button">Click Me</button>
-                <img class="icon" src="http://127.0.0.1:8000/storage/img/test_icon.jpg" alt="ユーザーアイコン">
+                <img class="icon" src="{{ asset('storage/img/test_icon.jpg') }}" alt="ユーザーアイコン">
             </div>
+            <div id="easyModal" class="modal">
+                <span class="modalClose"></span>
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="header-left">
+                            <h1 class="header-title"><span style="color: #FF69B4;">G</span><span style="color: #00FFFF;">A</span><span style="color: #FFD700;">M</span><span style="color: #FF69B4;">E</span><span style="color: #00FFFF;">R</span><span style="color: #FFD700;">S</span><span style="color: #FF69B4;">!!</span></h1>
+                        </div>
+                        <div class="header-center">
+                            <form>
+                                <input type="text" placeholder="Search...">
+                                <select>
+                                    <option value="1">ユーザー</option>
+                                    <option value="2">投稿</option>
+                                    <option value="3">コミュニティ</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="header-right">
+                            <button id="modalOpenInner" class="button">Click Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </header>
     </div>
-
-    <div class="sidebar">
-        <div class="recommended-communities">
-            <h2>おすすめのコミュニティ</h2>
-            <ul>
-            <li class="topic">
-                    <img src="path/to/icon.png" alt="アイコン" class="community-icon">
-                    <span>pso2(ship3)コミュニティ</span>
-                    <span class="members-count">20人参加中</span>
-                </li>
-                <!-- 同様のリストアイテムが続く -->
-            </ul>
-        </div>
-        <div class="menu-icons">
-            <span class="icon">💬</span>
-            <span class="icon">👤</span>
-            <span class="icon">🔔</span>
-        </div>
-    </div>
-    <div id="easyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="modalClose">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h1 class="header-title"><span style="color: #FF69B4;">G</span><span style="color: #00FFFF;">A</span><span style="color: #FFD700;">M</span><span style="color: #FF69B4;">E</span><span style="color: #00FFFF;">R</span><span style="color: #FFD700;">S</span><span style="color: #FF69B4;">!!</span></h1>
-                <form>
-                    <input type="text" placeholder="Search..." class="search">
-                    <select>
-                        <option value="1">ユーザー</option>
-                        <option value="2">投稿</option>
-                        <option value="3">コミュニティ</option>
-                    </select>
-                </form>
-                <button id="modalOpenInner" class="button">Click Me</button>
-            </div>
-        </div>
-    </div>
- 
+    <div class="main">
         @yield('content')
     </div>
-    
-    
+
+
     <canvas id="particleCanvas"></canvas>
 
     <script src="{{ asset('/js/header.js') }}"></script>
