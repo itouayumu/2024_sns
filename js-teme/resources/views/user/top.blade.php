@@ -1,4 +1,4 @@
-@extends('layouts.user_layout')
+@extends('layouts.user_layout_u')
 
 @section('title','Index')
 
@@ -37,19 +37,19 @@
 
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <form action="" method="post">
-                <textarea name="post-content" id="post-content" cols="30" rows="10" placeholder="今何してます？"></textarea>
+            <span class="close">×</span>
+            <form action="{{ route('post_action') }}" method="POST" enctype="multipart/form-data" class="form">
+                @csrf
+                <textarea name="content" id="post-content" cols="30" rows="10" placeholder="今何してます？"></textarea>
                 <img id="preview" class="img_datareg" width="200px" height="200px">
                 <label>
-                    <!-- ▽見せる部分 -->
                     <span class="filelabel" title="ファイルを選択">
                         <img class="imgicon" src="{{ asset('storage/img/img.svg') }}" width="32" height="26" alt="＋画像">
                     </span>
-                    <!-- ▽本来の選択フォームは隠す -->
                     <input type="file" id="hidn" name="img" onchange="previewFile(this);">
                 </label>
-                <a class="postbutton2">投稿</button>
+                <button type="submit" class="postbutton2">投稿</button>
+            </form>
         </div>
     </div>
 

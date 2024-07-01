@@ -1,7 +1,6 @@
 
 
 .timeline {
-    margin-top: 8%;
     position: absolute;
     right: 5%;
     width: 800px;
@@ -66,7 +65,7 @@
 }
 
 #post-content {
-
+    width: 700px;
     font-size: 20px;
     border: none;
     resize: none;
