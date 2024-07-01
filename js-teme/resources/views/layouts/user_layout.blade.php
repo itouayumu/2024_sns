@@ -46,11 +46,11 @@
 
         </header>
     </div>
-    <div class="main">    
+    <div class="main">
         @yield('content')
     </div>
-    
-    
+
+
     <canvas id="particleCanvas"></canvas>
 
     <script src="{{ asset('/js/header.js') }}"></script>

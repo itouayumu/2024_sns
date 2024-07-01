@@ -5,7 +5,7 @@
 
 @section('content')
 <p>create community</p>
-<a href="/index">top</a>
+<a href="/home">top</a>
 <form action="{{ route('create_community') }}" method="POST" enctype="multipart/form-data">
     @csrf
     コミュニティ名<input type="text" name="community_name">
