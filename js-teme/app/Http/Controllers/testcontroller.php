@@ -10,8 +10,7 @@ use App\Models\Post;
 class testcontroller extends Controller
 {
 
-    public function login()
-    {
+    public function login(){
         return view('auth.login');
     }
 

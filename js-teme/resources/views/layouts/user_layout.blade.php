@@ -12,10 +12,12 @@
 </head>
 
 <body>
-    <div class="layout">
-
+<div class="layout">
         <header class="header">
-            <img src="{{ asset('storage/img/SNS_rogo.png') }}" alt="logo" class="logo" width="150px" height="auto">
+            <div class="header-left">
+                <img src="http://127.0.0.1:8000/storage/img/SNS_rogo.png" alt="logo" class="logo" width="150px" height="auto">
+            </div>
+
             <div class="header-right">
                 <button id="modalOpen" class="button">Click Me</button>
                 <img class="icon" src="{{ asset('storage/img/test_icon.jpg') }}" alt="ユーザーアイコン">
@@ -54,7 +56,7 @@
     <canvas id="particleCanvas"></canvas>
 
     <script src="{{ asset('/js/header.js') }}"></script>
-    <script src="{{ asset('/js/back.js') }}"></script>
+    <!-- <script src="{{ asset('/js/back.js') }}"></script> -->
 </body>
 
 </html>
