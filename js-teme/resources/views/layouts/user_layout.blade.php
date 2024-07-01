@@ -46,7 +46,9 @@
 
         </header>
     </div>
-    @yield('content')
+    <div class="main">    
+        @yield('content')
+    </div>
     
     
     <canvas id="particleCanvas"></canvas>

@@ -18,6 +18,9 @@ class testcontroller extends Controller
             return view('user.login');
         }
     }
+    public function login(){
+        return view('auth.login');
+    }
 
     public function post()
     {

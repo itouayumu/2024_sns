@@ -8,7 +8,7 @@
 body, html {
     height: 100%;
     font-family: 'Nunito', sans-serif;
-    background-color: #f7f7f7;
+
 }
 
 .container {
@@ -87,11 +87,23 @@ body, html {
 .btn-link {
     display: block;
     margin-top: 10px;
-    color: #007bff;
     text-align: center;
 }
 
 .btn-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
+    color: #ffffff;
+
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.headertext a{
+    padding-right: 20px;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+ }
+ .header_link:hover{
+   color: darkblue; 
 }
