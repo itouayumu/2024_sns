@@ -56,7 +56,7 @@
     <canvas id="particleCanvas"></canvas>
 
     <script src="{{ asset('/js/header.js') }}"></script>
-    <!-- <script src="{{ asset('/js/back.js') }}"></script> -->
+    <script src="{{ asset('/js/back.js') }}"></script>
 </body>
 
 </html>

@@ -24,7 +24,7 @@
                     @endif
                 </li>
 
-                <!-- 同様のリストアイテムが続く -->
+
 
             </ul>
         </div>
@@ -78,7 +78,7 @@
             @endforeach
             @endif
             <a href="/community">コミュニティ作成</a>
-            <!-- 同様のポストが続く -->
+
         </div>
     </div>
 </div>
