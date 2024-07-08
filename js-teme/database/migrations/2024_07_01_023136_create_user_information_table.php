@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('user_information', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('users_id');
             $table->unsignedInteger('genre_id');
+            $table->string('users_id');
             $table->string('icon');
-            $table->integer('report_count')->default(0);
+            $table->string('gender');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
