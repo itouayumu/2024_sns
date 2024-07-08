@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 Auth::routes();
 Route::get('index', [testcontroller::class, 'index']);
+Route::get('tork', [testcontroller::class, 'tork']);
 Route::get('/post', [testcontroller::class, 'post']);
 Route::get('/community', [CreateCommunityController::class, 'community']);
 Route::post('/create_community', [CreateCommunityController::class, 'create_community'])->name('create_community');

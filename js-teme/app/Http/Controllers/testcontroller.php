@@ -20,4 +20,7 @@ class testcontroller extends Controller
         $user_id = $user->id;
         return view('user.post', ['user_id' => $user_id]);
     }
+    public function tork(){
+        return view('user.tork');
+    }
 }

@@ -36,6 +36,11 @@ form .form-group input[type="file"] {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    resize: none;
+    width: 250px;
+}
+form .form-group textarea{
+    height: 200px;
 }
 
 form .form-group .radio-group {
