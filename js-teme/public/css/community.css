@@ -1,0 +1,74 @@
+.card {
+    margin: 0 auto;
+    padding: 20px;
+    width: 60%;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form .form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+form .form-group label {
+    flex: 0 0 150px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+form .form-group input[type="text"],
+form .form-group textarea,
+form .form-group select,
+form .form-group input[type="file"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form .form-group .radio-group {
+    display: flex;
+    align-items: center;
+}
+
+form .form-group .radio-group input[type="radio"] {
+    margin-left: 10px;
+}
+
+form .form-group .radio-group label {
+    margin-left: 5px;
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+}
+
+form input[type="submit"]:hover {
+    background: #0056b3;
+}
+#hidn {
+    display: none;
+}
+.imgicon{
+    position: relative;
+    right: 100px;
+    top: 70px;
+}

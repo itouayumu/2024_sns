@@ -8,32 +8,7 @@
 
 @section('content')
 <div class="container">
-    <div class="sidebar">
-        <div class="recommended-communities">
-            <h2>おすすめのコミュニティ</h2>
-            <ul>
-                <li>
-                    @if($community->isEmpty())
-                    <p>コミュニティがありません。作成してみましょう</p>
-                    @else
-                    @foreach($community as $communitys)
-                    <img src="path/to/icon.png" alt="アイコン" class="community-icon">
-                    <span>{{$communitys->community_name}}</span>
-                    <span class="members-count">20人参加中</span>
-                    @endforeach
-                    @endif
-                </li>
 
-
-
-            </ul>
-        </div>
-        <div class="menu-icons">
-            <span class="icon">💬</span>
-            <span class="icon">👤</span>
-            <span class="icon">🔔</span>
-        </div>
-    </div>
 
     <div id="myModal" class="modal">
         <div class="modal-content">
