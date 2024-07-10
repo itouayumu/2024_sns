@@ -12,6 +12,10 @@ class Community extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'reader');
+    }
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class, 'genre_id');
     }
 }

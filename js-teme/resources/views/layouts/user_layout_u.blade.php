@@ -29,15 +29,21 @@
         <div class="recommended-communities">
             <h2>おすすめのユーザー</h2>
             <ul>
-                <li class="topic">
-                    <img src="http://127.0.0.1:8000/storage/img/test_icon.jpg" alt="アイコン" class="community-icon">
-                    <span>名無しさん</span>
+                <li>
+                    @if($community->isEmpty())
+                    <p>コミュニティがありません。作成してみましょう</p>
+                    @else
+                    @foreach($community as $communitys)
+                    <img src="path/to/icon.png" alt="アイコン" class="community-icon">
+                    <span><a href="{{ url('join_community' ,['id' => $communitys->id]) }}">{{$communitys->community_name}}</a></span>
+                    <span class="members-count">20人参加中</span>
+                    @endforeach
+                    @endif
                 </li>
-                <!-- 同様のリストアイテムが続く -->
             </ul>
         </div>
         <div class="menu-icons">
-            <span class="icon">💬</span>
+            <span class="icon"><a href="/talk">💬</a></span>
             <span class="icon">👤</span>
             <span class="icon">🔔</span>
         </div>

@@ -10,7 +10,8 @@ use App\Models\Post;
 class testcontroller extends Controller
 {
 
-    public function login(){
+    public function login()
+    {
         return view('auth.login');
     }
 
@@ -19,8 +20,5 @@ class testcontroller extends Controller
         $user = Auth::user();
         $user_id = $user->id;
         return view('user.post', ['user_id' => $user_id]);
-    }
-    public function tork(){
-        return view('user.tork');
     }
 }

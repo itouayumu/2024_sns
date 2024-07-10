@@ -73,13 +73,12 @@ class RegisterController extends Controller
         ]);
 
         // フォームデータからファイルを取得
-        $iconPath = request()->file('icon')->store('icons', 'public');
-
+        $iconPath = request()->file('icon')->store('public/images');
         UserInformation::create([
             'user_id' => $user->id,
             'genre_id' => $data['genre'],
             'users_id' => $data['users_id'],
-            'icon' => $iconPath,
+            'icon' => basename($iconPath),
             'gender' => $data['gender'],
         ]);
 
