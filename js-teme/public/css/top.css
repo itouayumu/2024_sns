@@ -133,7 +133,8 @@
 .topic:hover {
     transform: scale(1.1);
 }
-.search{
-    height: 30px;
-    width: 550px;
+.timeline{
+
+    height: 400px;
+    overflow: auto;
 }
