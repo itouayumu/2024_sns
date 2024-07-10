@@ -67,4 +67,5 @@
 <span id="openModalBtn" class="plus-button icon"><span class="text">➕</span></span>
 <script src="{{ asset('/js/image.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/post.js') }}"></script>
 @endsection

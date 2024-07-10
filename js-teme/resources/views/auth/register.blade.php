@@ -84,7 +84,13 @@
 
                             <div class="col-md-6">
                                 <div class="img">
-                                    <input type="file" name="icon" onchange="previewFile(this);">
+                                <img id="preview" class="img_datareg" width="100px" height="100px">
+                                <label>
+                                    <span class="filelabel" title="ファイルを選択">
+                                    <img class="imgicon" src="{{ asset('storage/img/img.svg') }}" width="32" height="26" alt="＋画像">
+                                    </span>
+                                    <input type="file" name="icon" id="hidn" onchange="previewFile(this);">
+                                </label>
                                 </div>
                             </div>
                         </div>
@@ -111,4 +117,6 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('/js/image.js') }}"></script>
+
 @endsection
