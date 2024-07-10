@@ -107,3 +107,6 @@ a{
  .header_link:hover{
    color: darkblue; 
 }
+#hidn{
+    display: none;
+}
