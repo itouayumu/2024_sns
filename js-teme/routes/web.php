@@ -5,6 +5,7 @@ use App\Http\Controllers\testcontroller;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CreateCommunityController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Talk_Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -13,7 +14,9 @@ use App\Http\Controllers\Auth\LoginController;
 
 Auth::routes();
 Route::get('index', [testcontroller::class, 'index']);
-Route::get('tork', [testcontroller::class, 'tork']);
+Route::get('/talk', [Talk_Controller::class, 'talk']);
+Route::get('/join_community/{id}', [CreateCommunityController::class, 'join_community']);
+Route::post('/join_function', [CreateCommunityController::class, 'join_function'])->name('join_function');
 Route::get('/post', [testcontroller::class, 'post']);
 Route::get('/community', [CreateCommunityController::class, 'community']);
 Route::post('/create_community', [CreateCommunityController::class, 'create_community'])->name('create_community');
