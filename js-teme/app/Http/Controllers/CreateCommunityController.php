@@ -16,7 +16,10 @@ class CreateCommunityController extends Controller
         $user = Auth::user();
         if ($user) {
             $items = DB::table('genre')->get();
-            return view('user.community', ['items' => $items]);
+            $community = Community::where('delete_flag', false)
+                ->orderBy('created_at', 'desc')
+                ->get();
+            return view('user.community', ['items' => $items, 'community' => $community]);
         } else {
             return redirect('/login');
         };

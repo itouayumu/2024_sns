@@ -20,7 +20,7 @@ class PostController extends Controller
         $param = [
             'user_id' => Auth::id(),
             'content' => $request->input('content'),
-            'img' => $path,
+            'img' => basename($path),
         ];
 
         DB::table('post')->insert($param);
