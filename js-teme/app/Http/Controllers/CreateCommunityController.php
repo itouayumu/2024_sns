@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Community;
+use App\Models\Participant_Community;
 
 class CreateCommunityController extends Controller
 {
@@ -32,7 +33,7 @@ class CreateCommunityController extends Controller
             $path = null;
         }
 
-        $param = [
+        $community = Community::create([
             'community_name' => $request->input('community_name'),
             'comu_explanation' => $request->input('comu_explanation'),
             'genre_id' => $request->input('genre'),
@@ -40,10 +41,15 @@ class CreateCommunityController extends Controller
             'icon' => basename($path),
             'reader' => Auth::id(),
             'public_flag' => $request->input('public_flag'),
-        ];
-
-        DB::table('community')->insert($param);
-
+        ]);
+        Participant_Community::create([
+            'community_id' => $community->id,
+            'user_id' => Auth::id(),
+        ]);
+        // DB::table('participant_community')->insert([
+        //     'community_id' => $community->id,
+        //     'user_id' => Auth::id(),
+        // ]);
 
         return redirect('/');
     }
@@ -61,14 +67,21 @@ class CreateCommunityController extends Controller
 
     public function join_function(Request $request)
     {
-        $param = [
-            'community_id' => $request->input('community_id'),
-            'user_id' => Auth::id(),
-        ];
+        $community_id = $request->input('community_id');
+        $user_id = Auth::id();
+        $exists = DB::table('participant_community')
+            ->where('community_id', $community_id)
+            ->where('user_id', $user_id)
+            ->exists();
 
-        DB::table('participant_community')->insert($param);
-
-
-        return redirect('/');
+        if (!$exists) {
+            DB::table('participant_community')->insert([
+                'community_id' => $community_id,
+                'user_id' => $user_id,
+            ]);
+            return redirect('/');
+        } else {
+            return redirect('/', ['message' => 'すでに参加しています。']);
+        }
     }
 }
