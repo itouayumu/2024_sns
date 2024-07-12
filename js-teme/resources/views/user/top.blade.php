@@ -16,7 +16,7 @@
             <form action="{{ route('post_action') }}" method="POST" enctype="multipart/form-data" class="form">
                 @csrf
                 <textarea name="content" id="post-content" cols="30" rows="10" placeholder="今何してます？"></textarea>
-                <img id="preview" class="img_datareg" width="200px" height="200px">
+                <img id="preview" class="img_datareg" width="auto" height="200px">
                 <label>
                     <span class="filelabel" title="ファイルを選択">
                         <img class="imgicon" src="{{ asset('storage/img/img.svg') }}" width="32" height="26" alt="＋画像">
@@ -37,7 +37,7 @@
             @foreach($posts as $post)
             <div class="post">
                 <div class="user-info">
-                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+                    <img src="{{asset('/storage/images/'.$post->img)}}" alt="ユーザーアイコン" class="user-icon">
                     <div>
                         <span class="username">{{ $post->user->name }}</span>
                         <span class="user-id">ユーザーID</span>
@@ -47,6 +47,7 @@
                 </div>
                 <div class="post-content">
                     <p>{{ $post->content }}</p>
+                    <img src="{{asset('/storage/images/'.$post->img)}}" width="550px" height="auto">
                 </div>
             </div>
 
