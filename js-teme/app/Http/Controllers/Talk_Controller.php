@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class Talk_Controller extends Controller
 {
-    public function tork()
+    public function talk()
     {
         $user = Auth::user();
         if ($user) {

@@ -58,14 +58,21 @@ class CreateCommunityController extends Controller
 
     public function join_function(Request $request)
     {
-        $param = [
-            'community_id' => $request->input('community_id'),
-            'user_id' => Auth::id(),
-        ];
+        $community_id = $request->input('community_id');
+        $user_id = Auth::id();
+        $exists = DB::table('participant_community')
+            ->where('community_id', $community_id)
+            ->where('user_id', $user_id)
+            ->exists();
 
-        DB::table('participant_community')->insert($param);
-
-
-        return redirect('/');
+        if (!$exists) {
+            DB::table('participant_community')->insert([
+                'community_id' => $community_id,
+                'user_id' => $user_id,
+            ]);
+            return redirect('/');
+        } else {
+            return redirect('/', ['message' => 'すでに参加しています。']);
+        }
     }
 }
