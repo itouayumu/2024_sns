@@ -37,12 +37,15 @@
     <div class="sidebar">
         <div class="recommended-communities">
             <h2>おすすめのコミュニティ</h2>
-            <ul>
-
-
-
-
-            </ul>
+            @if($community->isEmpty())
+                    <p>コミュニティがありません。作成してみましょう</p>
+                    @else
+                    @foreach($community as $communitys)
+                    <img src="path/to/icon.png" alt="アイコン" class="community-icon">
+                    <span><a href="{{ url('join_community' ,['id' => $communitys->id]) }}">{{$communitys->community_name}}</a></span>
+                    <span class="members-count">20人参加中</span>
+                    @endforeach
+                    @endif
         </div>
         <div class="menu-icons">
             <span class="icon">💬</span>
@@ -65,7 +68,7 @@
                         <option value="3">コミュニティ</option>
                     </select>
                 </form>
-                <button id="modalOpenInner" class="button">Click Me</button>
+
             </div>
         </div>
     </div>
