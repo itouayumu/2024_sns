@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('post', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('user_id');
-            $table->timestamps('');
             $table->string('content');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->boolean('delete_flag')->default(false);
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
