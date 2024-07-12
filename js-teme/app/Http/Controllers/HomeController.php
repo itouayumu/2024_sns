@@ -31,6 +31,7 @@ class HomeController extends Controller
         $user = Auth::user();
         if ($user) {
             $posts = Post::where('delete_flag', false)
+                ->with('user', 'userInfo')
                 ->orderBy('created_at', 'desc')
                 ->get();
             $community = Community::where('delete_flag', false)

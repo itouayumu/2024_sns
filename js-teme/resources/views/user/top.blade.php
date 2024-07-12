@@ -37,7 +37,7 @@
             @foreach($posts as $post)
             <div class="post">
                 <div class="user-info">
-                    <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+                    <img src="{{ asset('/storage/images/' .$post->userInfo->icon) }}" alt="コミュニティ画像" class="community-image">
                     <div>
                         <span class="username">{{ $post->user->name }}</span>
                         <span class="user-id">ユーザーID</span>

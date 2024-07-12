@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Participant_Community;
 
 class Talk_Controller extends Controller
 {
@@ -12,10 +13,11 @@ class Talk_Controller extends Controller
     {
         $user = Auth::user();
         if ($user) {
-            $items = DB::table('genre')->get();
-            return view('user.community', ['items' => $items]);
+            $id = Auth::id();
+            $items = Participant_Community::where('user_id', $id)->with(['community'])->get();
+            return view('user.talk', ['items' => $items]);
         } else {
             return redirect('/login');
-        };
+        }
     }
 }

@@ -22,4 +22,9 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function userInfo()
+    {
+        return $this->belongsTo(UserInformation::class, 'user_id', 'user_id');
+    }
 }

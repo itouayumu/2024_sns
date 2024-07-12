@@ -9,12 +9,16 @@ class Participant_Community extends Model
 {
     use HasFactory;
     protected $table = 'participant_community';
+    protected $fillable = [
+        'community_id',
+        'user_id'
+    ];
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
     public function community()
     {
-        return $this->belongsTo(Genre::class, 'community_id');
+        return $this->belongsTo(Community::class, 'community_id');
     }
 }
