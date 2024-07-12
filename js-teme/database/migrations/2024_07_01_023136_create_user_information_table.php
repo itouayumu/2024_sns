@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('genre_id');
             $table->string('users_id');
-            $table->string('icon');
+            $table->string('icon')->nullable();
             $table->string('gender');
             $table->timestamps();
 
