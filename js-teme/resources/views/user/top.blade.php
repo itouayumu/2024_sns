@@ -37,13 +37,10 @@
             @foreach($posts as $post)
             <div class="post">
                 <div class="user-info">
-
-                    <img src="{{ asset('/storage/images/' .$post->userInfo->icon) }}" alt="ユーザー画像" class="user_icon">
-
+                    <img src="{{ asset('/storage/images/' .$post->userInfo->icon) }}" alt="ユーザー画像" class="user_icon" width="32" height="26">
                     <div>
                         <span class="username">{{ $post->user->name }}</span>
-                        <span class="user-id">ユーザーID</span>
-
+                        <span class="user-id">{{ $post->userInfo->users_id }}</span>
                     </div>
                     <span class="post-date">{{ $post->created_at }}</span>
                 </div>
