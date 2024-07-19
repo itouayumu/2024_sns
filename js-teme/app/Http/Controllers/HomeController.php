@@ -46,4 +46,12 @@ class HomeController extends Controller
             return redirect('/login');
         }
     }
+    public function latestPosts()
+    {
+        $posts = Post::where('delete_flag', false)
+            ->with('user', 'userInfo')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return response()->json($posts);
+    }
 }
