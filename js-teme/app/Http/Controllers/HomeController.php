@@ -9,7 +9,6 @@ use App\Models\Post;
 use App\Models\UserInformation;
 use App\Models\Community;
 use App\Models\User;
-use App\Models\UserInformation;
 
 class HomeController extends Controller
 {
