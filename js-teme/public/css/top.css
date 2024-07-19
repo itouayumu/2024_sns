@@ -21,11 +21,12 @@
     margin-bottom: 10px;
 }
 
-.user-icon {
+.post .user_icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    object-fit: cover;
 }
 
 .username {

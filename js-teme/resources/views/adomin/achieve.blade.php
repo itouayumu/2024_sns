@@ -15,22 +15,14 @@
     <div class="layout">
 
         <header class="header">
-            <img src="{{ asset('storage/img/SNS_rogo.png') }}" alt="logo" class="logo" width="150px" height="auto">
+            <img src="{{ asset('storage/img/SNS_rogo.png')}}" alt="logo" class="logo" width="150px" height="auto">
             <div class="headertext">
-                <a href="/login" class="header_link">ログイン</a>
-                <a href="/register" class="header_link">新規登録</a>
             </div>
         </header>
     </div>
-    <div class="main">    
-        @yield('content')
-    </div>
-    
-    
-    <canvas id="particleCanvas"></canvas>
-
-
-    <script src="{{ asset('/js/back.js') }}"></script>
+<main>
+    <session></session>
+</main>
 </body>
 
 </html>

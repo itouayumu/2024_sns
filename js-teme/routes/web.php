@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Talk_Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\adomincontroller;
+use App\Http\Controllers\achieveController;
 
 
 
@@ -27,3 +29,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/user_profile', [UserController::class, 'user_profile']);
+Route::get('/user_achieve', [achieveController::class, 'achieve']);
+Route::get('/adomin', [adomincontroller::class, 'adomin']);
+Route::get('/achieve', [adomincontroller::class, 'achieve']);

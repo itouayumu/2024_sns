@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('achieve_name');
             $table->string('img');
             $table->string('game');
+            $table->string('detail');
             $table->boolean('delete_flag')->default(false);
         });
     }
