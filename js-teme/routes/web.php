@@ -15,6 +15,8 @@ use App\Http\Controllers\Auth\LoginController;
 Auth::routes();
 Route::get('index', [testcontroller::class, 'index']);
 Route::get('/talk', [Talk_Controller::class, 'talk']);
+Route::get('/communities/{id}/messages', [Talk_Controller::class, 'getMessages']);
+Route::post('/communities/{id}/messages', [Talk_Controller::class, 'postMessage']);
 Route::get('/join_community/{id}', [CreateCommunityController::class, 'join_community']);
 Route::post('/join_function', [CreateCommunityController::class, 'join_function'])->name('join_function');
 Route::get('/post', [testcontroller::class, 'post']);
