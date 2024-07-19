@@ -27,4 +27,8 @@ class Community extends Model
     {
         return $this->belongsTo(Genre::class, 'genre_id');
     }
+    public function messages()
+    {
+        return $this->hasMany(CommunityChat::class);
+    }
 }
