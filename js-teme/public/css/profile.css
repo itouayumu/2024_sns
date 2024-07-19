@@ -12,6 +12,7 @@ html{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 112px;
   }
   .user-info p, .user-info a{
     background-color: #fff;

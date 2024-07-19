@@ -10,26 +10,10 @@ use App\Models\Community;
 use App\Models\User;
 use App\Models\UserInformation;
 
-class HomeController extends Controller
+class achieveController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function achieve()
     {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        
         $user = Auth::user();
         if ($user) {
             $posts = Post::where('delete_flag', false)
@@ -42,7 +26,7 @@ class HomeController extends Controller
             $id = Auth::id();
             $user = User::where('id', $id)->first();
 
-            return view('user.top', ['posts' => $posts, 'community' => $community,'user' => $user]);
+            return view('user.achieve', ['user' => $user]);
         } else {
             return redirect('/login');
         }
