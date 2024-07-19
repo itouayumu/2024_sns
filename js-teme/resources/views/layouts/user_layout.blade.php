@@ -16,7 +16,7 @@
         <header class="header">
             <div class="header-left">
             <a href="/">
-                    <img src="http://127.0.0.1:8000/storage/img/SNS_rogo.png" alt="logo" class="logo" width="150px" height="auto" >
+                    <img src="http://127.0.0.1:8000/storage/images/SNS_rogo.png" alt="logo" class="logo" width="150px" height="auto" >
                 </a>            </div>
 
             <div class="header-right">
@@ -29,7 +29,7 @@
                     <input type="text" name="search2" class="search">
                     <button  class="button">検索</button>
                 </form>
-                <img class="icon" src="http://127.0.0.1:8000/storage/img/test_icon.jpg" alt="ユーザーアイコン">
+                <img class="icon" src="http://127.0.0.1:8000/storage/images/test_icon.jpg" alt="ユーザーアイコン">
             </div>
         </header>
     </div>

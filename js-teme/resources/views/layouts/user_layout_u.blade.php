@@ -16,7 +16,8 @@
         <header class="header">
             <div class="header-left">
                 <a href="/">
-                    <img src="http://127.0.0.1:8000/storage/img/SNS_rogo.png" alt="logo" class="logo" width="150px" height="auto" >
+
+                    <img src="{{ asset('/storage/images/') }}" alt="logo" class="logo" width="150px" height="auto" >
                 </a>
             </div>
 
@@ -30,7 +31,7 @@
                     <input type="text" name="search" class="search2">
                     <button id="modalOpen" class="button">検索</button>
                 </form>
-                <a href="/user_profile"><img class="icon" src="http://127.0.0.1:8000/storage/img/test_icon.jpg" alt="ユーザーアイコン"></a>
+                <a href="/user_profile"><img class="icon" src="{{ asset('/storage/images/') }}" alt="ユーザーアイコン"></a>
             </div>
         </header>
     </div>
@@ -40,15 +41,7 @@
             <h2>おすすめのユーザー</h2>
             <ul>
                 <li>
-                    @if($community->isEmpty())
-                    <p>コミュニティがありません。作成してみましょう</p>
-                    @else
-                    @foreach($community as $communitys)
-                    <img src="path/to/icon.png" alt="アイコン" class="community-icon">
-                    <span><a href="{{ url('join_community' ,['id' => $communitys->id]) }}">{{$communitys->community_name}}</a></span>
-                    <span class="members-count">20人参加中</span>
-                    @endforeach
-                    @endif
+                  
                 </li>
             </ul>
         </div>

@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\UserInformation;
 use App\Models\Community;
-
+use App\Models\User;
+use App\Models\UserInformation;
 
 class HomeController extends Controller
 {
@@ -29,6 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         $user = Auth::user();
         if ($user) {
             $id = Auth::id();
@@ -37,11 +39,14 @@ class HomeController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
             $community = Community::where('delete_flag', false)
-                ->orderBy('created_at', 'desc')
-                ->get();
-            $icon = UserInformation::where('user_id', $id)
-                ->first();
-            return view('user.top', ['posts' => $posts, 'community' => $community, 'icon' => $icon]);
+
+            ->orderBy('created_at', 'desc')
+            ->get();
+            $id = Auth::id();
+            $user = User::where('id', $id)->first();
+
+            return view('user.top', ['posts' => $posts, 'community' => $community,'user' => $user]);
+
         } else {
             return redirect('/login');
         }
