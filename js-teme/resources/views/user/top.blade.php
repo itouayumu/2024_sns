@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="container">
 
 
@@ -47,6 +48,7 @@
                 <div class="post-content">
                     <p>{{ $post->content }}</p>
                     <img src="{{asset('/storage/images/'.$post->img)}}" width="550px" height="auto">
+
                 </div>
             </div>
 
@@ -68,4 +70,5 @@
 <script src="{{ asset('/js/image.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/post.js') }}"></script>
+<script src="{{ asset('js/timeline.js') }}"></script>
 @endsection

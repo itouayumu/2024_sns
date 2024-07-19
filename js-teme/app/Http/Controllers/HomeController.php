@@ -9,7 +9,6 @@ use App\Models\Post;
 use App\Models\UserInformation;
 use App\Models\Community;
 use App\Models\User;
-use App\Models\UserInformation;
 
 class HomeController extends Controller
 {
@@ -50,5 +49,13 @@ class HomeController extends Controller
         } else {
             return redirect('/login');
         }
+    }
+    public function latestPosts()
+    {
+        $posts = Post::where('delete_flag', false)
+            ->with('user', 'userInfo')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return response()->json($posts);
     }
 }
