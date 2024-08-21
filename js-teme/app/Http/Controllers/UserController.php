@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\UserInformation;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,9 +15,11 @@ class UserController extends Controller
     {
         $user = Auth::user();
         if ($user) {
+            $id = Auth::id();
             $items = User::where('id', Auth::id())->first();
             $posts = Post::where('user_id', Auth::id())->get();
-            return view('user.profile', ['items' => $items, 'posts' => $posts]);
+            $userInfo = UserInformation::where('user_id', $id)->first();
+            return view('user.profile', ['items' => $items, 'posts' => $posts, 'userInfo' => $userInfo]);
         } else {
             return redirect('/login');
         };

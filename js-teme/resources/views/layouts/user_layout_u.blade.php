@@ -17,7 +17,7 @@
             <div class="header-left">
                 <a href="/">
 
-                    <img src="{{ asset('/storage/images/') }}" alt="logo" class="logo" width="150px" height="auto" >
+                    <img src="{{ asset('/storage/images/') }}" alt="logo" class="logo" width="150px" height="auto">
                 </a>
             </div>
 
@@ -31,7 +31,7 @@
                     <input type="text" name="search" class="search2">
                     <button id="modalOpen" class="button">検索</button>
                 </form>
-                <a href="/user_profile"><img class="icon" src="{{ asset('/storage/images/') }}" alt="ユーザーアイコン"></a>
+                <a href="/user_profile"><img class="icon" src="{{asset('/storage/images/'.$userInfo->icon)}}" alt="ユーザーアイコン"></a>
             </div>
         </header>
     </div>
@@ -41,7 +41,7 @@
             <h2>おすすめのユーザー</h2>
             <ul>
                 <li>
-                  
+
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
             <span class="icon">🔔</span>
         </div>
     </div>
-    
+
 
     @yield('content')
     </div>

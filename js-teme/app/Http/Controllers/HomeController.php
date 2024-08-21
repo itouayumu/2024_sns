@@ -29,7 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
+
         $user = Auth::user();
         if ($user) {
             $id = Auth::id();
@@ -38,14 +38,12 @@ class HomeController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
             $community = Community::where('delete_flag', false)
-
-            ->orderBy('created_at', 'desc')
-            ->get();
+                ->orderBy('created_at', 'desc')
+                ->get();
             $id = Auth::id();
             $user = User::where('id', $id)->first();
-
-            return view('user.top', ['posts' => $posts, 'community' => $community,'user' => $user]);
-
+            $userInfo = UserInformation::where('user_id', $id)->first();
+            return view('user.top', ['posts' => $posts, 'community' => $community, 'user' => $user, 'userInfo' => $userInfo]);
         } else {
             return redirect('/login');
         }
