@@ -14,8 +14,11 @@
 @section('content')
 <div>
 
-    <form class="achieve">
-        <input type="text" name="gamename">
+    <p class="point">下記の入力欄にどのような実績があるか入力してください</p>
+    <p class="point2">画像は大会の結果のランキングや公式サイトの画像等を貼り付けてください</p>
+    <form class="achieve" action="{{ route('achieve_action') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <textarea name="content" id="" method></textarea>
         
         <img id="preview" class="img_datareg" width="auto" height="200px">
         <label>
@@ -24,6 +27,7 @@
             </span>
             <input type="file" id="hidn" name="img" onchange="previewFile(this);">
         </label>
+        <button type="submit">送信</button>
     </form>
     
     <script src="{{ asset('/js/image.js') }}"></script>
