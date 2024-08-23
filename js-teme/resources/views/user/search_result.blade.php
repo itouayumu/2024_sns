@@ -32,28 +32,47 @@
 
     <div class="main-content">
         <div class="timeline">
-            @if($posts->isEmpty())
-            <p>ポストがありません投稿してみましょう</p>
-            @else
-            @foreach($posts as $post)
+            @if(isset($user) && count($user) > 0)
+            @foreach($user as $u)
             <div class="post">
                 <div class="user-info">
-                    <img src="{{ asset('/storage/images/' .$post->userInfo->icon) }}" alt="ユーザー画像" class="user_icon" width="32" height="26">
                     <div>
-                        <span class="username">{{ $post->user->name }}</span>
-                        <span class="user-id">{{ $post->userInfo->users_id }}</span>
+                        <a href="{{ route('other_profile', ['id' => $u->id]) }}" class="username">{{ $u->name }}</a>
+                        <span class="user-id">{{ $u->id }}</span>
                     </div>
-                    <span class="post-date">{{ $post->created_at }}</span>
-                </div>
-                <div class="post-content">
-                    <p>{{ $post->content }}</p>
-                    <img src="{{asset('/storage/images/'.$post->img)}}" width="550px" height="auto">
-
                 </div>
             </div>
-
             @endforeach
+
+            @elseif(isset($posts) && count($posts) > 0)
+            @foreach($posts as $p)
+            <div class="post">
+                <div class="user-info">
+                    <div>
+                        <span class="username">{{ $p->content }}</span>
+                        <span class="user-id">{{ $p->id }}</span>
+                        {{ $p->user->name }}
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+            @elseif(isset($community) && count($community) > 0)
+            @foreach($community as $c)
+            <div class="post">
+                <div class="user-info">
+                    <div>
+                        <span class="username">{{ $c->community_name }}</span>
+                        <span class="user-id">{{ $c->id }}</span>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+            @else
+            <p>検索結果はありません</p>
             @endif
+
             <a href="/community">コミュニティ作成</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -67,5 +86,3 @@
 <script src="{{ asset('/js/image.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/post.js') }}"></script>
-<script src="{{ asset('js/timeline.js') }}"></script>
-@endsection
