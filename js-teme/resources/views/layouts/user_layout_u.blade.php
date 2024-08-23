@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/back.css') }}">
     @yield('css')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -22,14 +23,19 @@
             </div>
 
             <div class="header-right">
-                <form>
-                    <select>
-                        <option value="1">ユーザー</option>
-                        <option value="2">投稿</option>
-                        <option value="3">コミュニティ</option>
+                <form action="{{ route('search_result') }}" method="POST" enctype="multipart/form-data" class="form">
+                    @csrf
+                    <select name="kinds">
+                        <option value="user">ユーザー</option>
+                        <option value="post">投稿</option>
+                        <option value="community">コミュニティ</option>
                     </select>
                     <input type="text" name="search" class="search2">
-                    <button id="modalOpen" class="button">検索</button>
+                    <button type="submit" id="modalOpen" class="button">検索</button>
+                </form>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">ログアウト</button>
                 </form>
                 <a href="/user_profile"><img class="icon" src="{{asset('/storage/images/'.$userInfo->icon)}}" alt="ユーザーアイコン"></a>
             </div>

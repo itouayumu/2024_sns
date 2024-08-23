@@ -11,6 +11,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\adomincontroller;
 use App\Http\Controllers\achieveController;
+use App\Http\Controllers\SearchController;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -38,4 +40,9 @@ Route::get('/achieve', [adomincontroller::class, 'achieve']);
 Route::post('/achive_result_true', [AdominController::class, 'achive_result_true']);
 Route::post('/achive_result_false', [AdominController::class, 'achive_result_false']);
 Route::get('/aplication', [adomincontroller::class, 'aplication'])->name('aplication');
-
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+Route::post('/search_result', [SearchController::class, 'search_result'])->name('search_result');
+Route::get('/other_profile/{id}', [UserController::class, 'other_profile'])->name('other_profile');

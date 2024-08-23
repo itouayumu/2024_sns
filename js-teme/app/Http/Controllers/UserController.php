@@ -24,4 +24,12 @@ class UserController extends Controller
             return redirect('/login');
         };
     }
+
+    public function other_profile($id)
+    {
+        $items = User::where('id', $id)->first();
+        $posts = Post::where('user_id', $id)->get();
+        $userInfo = UserInformation::where('user_id', $id)->first();
+        return view('user.profile', ['items' => $items, 'posts' => $posts, 'userInfo' => $userInfo]);
+    }
 }
