@@ -60,14 +60,7 @@
             </div>
             <div class="modal-body">
                 <h1 class="header-title"><span style="color: #FF69B4;">G</span><span style="color: #00FFFF;">A</span><span style="color: #FFD700;">M</span><span style="color: #FF69B4;">E</span><span style="color: #00FFFF;">R</span><span style="color: #FFD700;">S</span><span style="color: #FF69B4;">!!</span></h1>
-                <form>
-                    <input type="text" placeholder="Search..." class="search">
-                    <select>
-                        <option value="1">ユーザー</option>
-                        <option value="2">投稿</option>
-                        <option value="3">コミュニティ</option>
-                    </select>
-                </form>
+
 
             </div>
         </div>

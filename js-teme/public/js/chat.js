@@ -75,7 +75,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 messages.forEach(message => {
                     const messageDiv = document.createElement('div');
                     messageDiv.classList.add('message');
-                    messageDiv.innerHTML = `<p>${message.user.name}: ${message.content}</p>`;
+
+                    // Display message on the right if it's from the current user, otherwise on the left
+                    if (message.user.id == currentUserId) {
+                        messageDiv.classList.add('me');
+                    } else {
+                        messageDiv.classList.add('other');
+                    }
+
+                    messageDiv.innerHTML = `<div class="message-content"><p>${message.user.name}: ${message.content}</p></div>`;
                     messageContainer.appendChild(messageDiv);
                 });
             })
@@ -101,8 +109,9 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(newMessage => {
             const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.innerHTML = `<p>${newMessage.user.name}: ${newMessage.content}</p>`;
+            messageDiv.classList.add('message', 'me');  // Show the new message on the right
+
+            messageDiv.innerHTML = `<div class="message-content"><p>${newMessage.user.name}: ${newMessage.content}</p></div>`;
             messageContainer.appendChild(messageDiv);
             textarea.value = '';  // 送信後にテキストエリアをクリア
         })
