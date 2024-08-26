@@ -10,13 +10,15 @@
     <div class="container">
         <!-- 参加しているコミュニティ -->
         <div class="hed">
+            <p>参加中のコミュニティ</p>
             @if($items->isEmpty())
             <p>参加中のコミュニティはありません</p>
             @else
             @foreach($items as $item)
-            {{ $item->community->id }}
-            <p><a href="#" class="community-link" data-community-id="{{ $item->community->id }}">{{ $item->community->community_name }}</a>
-            <img src="{{ asset('/storage/images/' .$item->community->icon) }}" alt="ユーザー画像" class="user_icon" width="32" height="26"></p>
+            <a href="#" class="community-link" data-community-id="{{ $item->community->id }}">
+                <img src="{{ asset('/storage/images/' .$item->community->icon) }}" alt="ユーザー画像" class="user_icon">
+                <p>{{ $item->community->community_name }}</p>
+            </a>
             @endforeach
             @endif
             <div class="menu">
@@ -30,15 +32,15 @@
         <div class="tork">
             <!-- ここに会話内容を表示 -->
         </div>
+        <!-- 入力欄 -->
         <div class="text">
             <form>
                 @csrf
-                <textarea name="content"></textarea>
+                <textarea name="content" placeholder="メッセージを入力"></textarea>
                 <input type="hidden" name="community_id" id="community_id">
-                <button type="submit">送信</button>
+                <button type="submit" class="post">送信</button>
             </form>
         </div>
-    </div>
     </div>
 
     <script>

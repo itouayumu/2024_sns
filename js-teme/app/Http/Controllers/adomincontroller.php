@@ -21,6 +21,7 @@ class adomincontroller extends Controller
     public function aplication(Request $request){
         $id = $request->id;
         $item=DB::table('_application')->where('id',$id)->first();
+        
         return view('adomin.achive_deteles',['item'=>$item,'id'=>$id]);
     }
     public function achive_result_true(Request $request){

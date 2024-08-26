@@ -1,27 +1,118 @@
-.container{
+html, body {
+    overflow: hidden;
+}
+
+/* 親要素 */
+.container {
+    position: relative;
+    min-height: 100vh; /* コンテンツが少なくてもフッターが下部に表示されるように */
+    padding-bottom: 60px; /* フッターの高さ分を確保 */
     width: 100%;
     height: 80.5%;
     display: flex;
     margin-top: 100px;
 }
 
-/* 自分のメッセージ */
+.hed {
+    padding: 20px;
+    background-color: #f0f0f0;
+    width: 20vw;
+    position: relative; /* 子要素(.menu)の絶対配置を基準にする */
+    min-height: 150px; /* ヘッダーの高さを確保 */
+}
+
+/* コミュニティリンクのスタイル */
+.community-link {
+    display: flex; /* アイコンとテキストを横並びに */
+    align-items: center; /* アイコンとテキストを中央揃え */
+    color: black;
+    font-size: 1.5vw;
+    text-decoration: none;
+    padding: 10px; /* アイコンとテキスト周りにスペースを追加 */
+    border-radius: 5px; /* 角を少し丸くする */
+}
+
+/* ホバー時の背景色変更 */
+.community-link:hover {
+    background-color: rgb(153, 153, 153);
+    color: white; /* テキストの色を白に変更 */
+}
+
+/* アイコンのスタイル */
+.user_icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px; /* アイコンとテキストの間にスペース */
+}
+
+/* .menu要素をhedの一番下に配置 */
+.menu {
+    position: absolute;
+    bottom: 50px; /* 親要素の下から50pxの位置に配置 */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* アイコンを中央に配置 */
+    padding: 10px 0;
+    font-size: 4vw;
+}
+
+/* メッセージ表示エリア */
+.tork {
+    width: 75vw;
+    padding: 20px;
+    overflow-y: scroll;
+    height: 25vw;
+    scrollbar-width: none; /* スクロールバー非表示 (Firefox対応) */
+}
+
+/* 入力欄 */
+.text {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 23.5vw;
+}
+
+textarea {
+    width: 80%;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.post {
+    width: 10%;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+/* メッセージのボックス（自分のメッセージ） */
 .message.me {
     text-align: right;
 }
 
-/* 他の人のメッセージ */
-.message.other {
-    text-align: left;
-}
-
-/* メッセージのボックス */
 .message.me .message-content {
     background-color: #daf8cb;
     display: inline-block;
     padding: 8px 12px;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+/* メッセージのボックス（他の人のメッセージ） */
+.message.other {
+    text-align: left;
 }
 
 .message.other .message-content {
@@ -31,4 +122,3 @@
     border-radius: 10px;
     margin-bottom: 10px;
 }
-
