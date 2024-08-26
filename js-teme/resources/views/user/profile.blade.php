@@ -36,8 +36,8 @@
                     @endif
             </div>
             <div class="details2">
-                <p>フォロワー数: {{ $items->followers_count }}</p>
-                <p>フォロー: {{ $items->following_count }}</p>
+                <p>フォロワー数:{{ $follow_count }}</p>
+                <p>フォロー: {{ $follower_count }}</p>
             </div>
         </div>
     </div>
