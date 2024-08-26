@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Participant_Community;
 use App\Models\CommunityChat;
+use App\Models\User;
+use App\Models\UserInformation;
 
 class Talk_Controller extends Controller
 {
@@ -16,7 +18,9 @@ class Talk_Controller extends Controller
         if ($user) {
             $id = Auth::id();
             $items = Participant_Community::where('user_id', $id)->with(['community'])->get();
-            return view('user.talk', ['items' => $items]);
+            $user = User::where('id', $id)->first();
+            $userInfo = UserInformation::where('user_id', $id)->first();
+            return view('user.talk', ['items' => $items, 'user' => $user,'userInfo' => $userInfo]);
         } else {
             return redirect('/login');
         }

@@ -1,8 +1,34 @@
 .container{
-    background-color: rgb(190, 190, 190);
     width: 100%;
     height: 80.5%;
+    display: flex;
+    margin-top: 100px;
 }
-.back{
-  
+
+/* 自分のメッセージ */
+.message.me {
+    text-align: right;
 }
+
+/* 他の人のメッセージ */
+.message.other {
+    text-align: left;
+}
+
+/* メッセージのボックス */
+.message.me .message-content {
+    background-color: #daf8cb;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.message.other .message-content {
+    background-color: #f1f1f1;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+

@@ -1,8 +1,12 @@
-<head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
+@extends('layouts.user_layout_tork')
 
-<body>
+@section('title', 'Index')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('/css/tork.css') }}">
+@endsection
+
+@section('content')
     <div class="container">
         <!-- 参加しているコミュニティ -->
         <div class="hed">
@@ -11,10 +15,15 @@
             @else
             @foreach($items as $item)
             {{ $item->community->id }}
-            <a href="#" class="community-link" data-community-id="{{ $item->community->id }}">{{ $item->community->community_name }}</a>
-            <img src="{{ asset('/storage/images/' .$item->community->icon) }}" alt="ユーザー画像" class="user_icon" width="32" height="26">
+            <p><a href="#" class="community-link" data-community-id="{{ $item->community->id }}">{{ $item->community->community_name }}</a>
+            <img src="{{ asset('/storage/images/' .$item->community->icon) }}" alt="ユーザー画像" class="user_icon" width="32" height="26"></p>
             @endforeach
             @endif
+            <div class="menu">
+                <span class="icon"><a href="/talk">💬</a></span>
+                <span class="icon">👤</span>
+                <span class="icon">🔔</span>
+            </div>
         </div>
         <div class="back"></div>
         <!-- 会話 -->
@@ -29,9 +38,13 @@
                 <button type="submit">送信</button>
             </form>
         </div>
+    </div>
+    </div>
 
-    </div>
-    </div>
+    <script>
+    // Bladeテンプレートから現在のユーザーIDを文字列として取得
+    const currentUserId = "{{ auth()->user()->id }}";
+    </script>
+
     <script src="{{ asset('js/chat.js') }}" defer></script>
-
-</body>
+@endsection

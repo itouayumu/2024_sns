@@ -19,6 +19,7 @@ body {
   align-items: center;
   padding: 10px 20px;
   background-color: #b6ffd8;
+  height: 70px;
 }
 
 .header-left {
@@ -78,7 +79,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-  height: 80%;
+  height: 90%;
 }
 
 .recommended-communities {
