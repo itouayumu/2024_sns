@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/back.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/admin_achive.css') }}">
     @yield('css')
 </head>
 
@@ -21,7 +22,25 @@
         </header>
     </div>
 <main>
-    <session></session>
+    @if($items->isEmpty())
+    <p>現在申請は来ていません</p>
+    @else
+    <table>
+        <tr>
+            <td>申請者名</td>
+            <td>申請内容</td>
+            <td></td>
+        </tr>
+        @foreach($items as $item)
+        <tr>
+            <td>{{ $item->username }}</td>
+            <td>{{ $item->content }}</td>
+            <td><a href="{{ route('aplication', ['id' => $item->id]) }}">詳細</a></td>
+            </td>
+        </tr>
+        @endforeach
+    </table>
+    @endif
 </main>
 </body>
 

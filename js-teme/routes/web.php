@@ -28,6 +28,7 @@ Route::get('/post', [testcontroller::class, 'post']);
 Route::get('/community', [CreateCommunityController::class, 'community']);
 Route::post('/create_community', [CreateCommunityController::class, 'create_community'])->name('create_community');
 Route::post('/post_action', [PostController::class, 'post_action'])->name('post_action');
+Route::post('/achieve_action', [achieveController::class, 'achieve_action'])->name('achieve_action');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -36,6 +37,9 @@ Route::get('/posts/latest', [HomeController::class, 'latestPosts']);
 Route::get('/user_achieve', [achieveController::class, 'achieve']);
 Route::get('/adomin', [adomincontroller::class, 'adomin']);
 Route::get('/achieve', [adomincontroller::class, 'achieve']);
+Route::post('/achive_result_true', [AdominController::class, 'achive_result_true']);
+Route::post('/achive_result_false', [AdominController::class, 'achive_result_false']);
+Route::get('/aplication', [adomincontroller::class, 'aplication'])->name('aplication');
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/login');
