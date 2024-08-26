@@ -10,13 +10,30 @@
 
 <div class="profile">
     <div class="user-info">
-        <img src="path/to/user-icon.png" alt="ユーザーアイコン" class="user-icon">
+        @if ($other_flag)
+        <img class="user-icon" src="{{asset('/storage/images/'.$search_info->icon)}}" alt="ユーザーアイコン">
+        @else
         <img class="user-icon" src="{{asset('/storage/images/'.$userInfo->icon)}}" alt="ユーザーアイコン">
+        @endif
+        @if (!$other_flag)
         <a href="user_achieve">実績タグ申請</a>
+        @endif
         <div class="user-details">
             <div class="details1">
                 <p>ユーザー名: {{ $items->name }}</p>
                 <p>ユーザーID: {{ $userInfo->users_id }}</p>
+                @if ($other_flag)
+                @if($follow_flag)
+                <form action="{{route('follow_function', ['id' => $items->id ])}}">
+                    @csrf
+                    <button type="submit">フォローする</button>
+                </form>
+                @else
+                <form action="{{route('follow_cancellation', ['id' => $items->id ])}}">
+                    @csrf
+                    <button type="submit">フォローしています</button>
+                    @endif
+                    @endif
             </div>
             <div class="details2">
                 <p>フォロワー数: {{ $items->followers_count }}</p>

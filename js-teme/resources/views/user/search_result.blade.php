@@ -1,5 +1,3 @@
-@extends('layouts.user_layout_u')
-
 @section('title','Index')
 
 @section('css')
