@@ -58,8 +58,16 @@ class CreateCommunityController extends Controller
     {
         $user = Auth::user();
         if ($user) {
+            $join_flag = false;
             $community = Community::with(['user', 'genre'])->find($id);
-            return view('user.join_community', ['community' => $community]);
+            $user_id = Auth::id();
+            $join_community = Participant_Community::where('community_id', $id)
+                ->where('user_id', $user_id)
+                ->exists();
+            if ($join_community) {
+                $join_flag = true;
+            }
+            return view('user.join_community', ['community' => $community, 'join_flag' => $join_flag]);
         } else {
             return redirect('/login');
         }
