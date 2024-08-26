@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\UserInformation;
+use App\Models\follow;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -20,7 +21,9 @@ class UserController extends Controller
             $items = User::where('id', Auth::id())->first();
             $posts = Post::where('user_id', Auth::id())->get();
             $userInfo = UserInformation::where('user_id', $id)->first();
-            return view('user.profile', ['items' => $items, 'posts' => $posts, 'userInfo' => $userInfo], compact('other_flag'));
+            $follow_count = follow::where('follower_id', $id)->count();
+            $follower_count = follow::where('follow_id', $id)->count();
+            return view('user.profile', ['items' => $items, 'posts' => $posts, 'userInfo' => $userInfo, 'follower_count' => $follower_count, 'follow_count' => $follow_count], compact('other_flag'));
         } else {
             return redirect('/login');
         };
@@ -40,7 +43,9 @@ class UserController extends Controller
             ->where('follower_id', $id)
             ->exists();
         $follow_flag = (!$exists) ? true : false;
-        return view('user.profile', ['items' => $items, 'posts' => $posts, 'userInfo' => $userInfo, 'search_info' => $search_info], compact('other_flag', 'follow_flag'));
+        $follow_count = follow::where('follower_id', $id)->count();
+        $follower_count = follow::where('follow_id', $id)->count();
+        return view('user.profile', ['items' => $items, 'posts' => $posts, 'userInfo' => $userInfo, 'search_info' => $search_info, 'follower_count' => $follower_count, 'follow_count' => $follow_count], compact('other_flag', 'follow_flag'));
     }
 
     public function follow_function($id)

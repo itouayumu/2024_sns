@@ -31,7 +31,6 @@ Route::post('/post_action', [PostController::class, 'post_action'])->name('post_
 Route::post('/achieve_action', [achieveController::class, 'achieve_action'])->name('achieve_action');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/user_profile', [UserController::class, 'user_profile']);
 Route::get('/posts/latest', [HomeController::class, 'latestPosts']);
 Route::get('/user_achieve', [achieveController::class, 'achieve']);
