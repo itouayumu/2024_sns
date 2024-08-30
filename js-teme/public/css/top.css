@@ -139,3 +139,7 @@
     height: 400px;
     overflow: auto;
 }
+.topimg{
+    height: auto;
+    width: auto;
+}

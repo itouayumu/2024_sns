@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         <div class="post-content">
                             <p>${post.content}</p>
-                            <img src="${postImg}" width="550px" height="auto">
+                            <img src="${postImg}" class="topimg">
                         </div>
                     </div>
                 `;
@@ -45,5 +45,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch latest posts every 1 second
-    setInterval(fetchLatestPosts, 1000);
+    setInterval(fetchLatestPosts, 10000);
 });

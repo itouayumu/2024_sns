@@ -18,7 +18,7 @@
             <div class="header-left">
                 <a href="/">
 
-                    <img src="{{ asset('/storage/images/') }}" alt="logo" class="logo" width="150px" height="auto">
+                    <img src="{{ asset('/storage/images/logo.png') }}" alt="logo" class="logo" width="150px" height="auto">
                 </a>
             </div>
 

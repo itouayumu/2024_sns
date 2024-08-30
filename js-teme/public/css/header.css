@@ -127,7 +127,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  bottom: 0;
+  bottom: 50px;
 }
 
 .icon {

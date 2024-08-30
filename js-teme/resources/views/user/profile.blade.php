@@ -46,7 +46,7 @@
             </div>
             <div class="post-content">
                 <p>{{ $post->content }}</p>
-                <img src="{{asset('/storage/images/'.$post->img)}}" width="550px" height="auto">
+                <img src="{{asset('/storage/images/'.$post->img)}}" width="auto" height="auto">
             </div>
         </div>
 
