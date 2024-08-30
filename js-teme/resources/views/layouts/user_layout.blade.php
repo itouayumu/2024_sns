@@ -15,10 +15,12 @@
     <div class="layout">
         <header class="header">
             <div class="header-left">
+
                 <a href="/">
                     <img src="http://127.0.0.1:8000/storage/images/SNS_rogo.png" alt="logo" class="logo" width="150px" height="auto">
                 </a>
             </div>
+
 
             <div class="header-right">
                 <form action="{{ route('search_result') }}" method="POST" enctype="multipart/form-data" class="form">

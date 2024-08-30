@@ -20,11 +20,11 @@
                 <img id="preview" class="img_datareg" width="auto" height="200px">
                 <label>
                     <span class="filelabel" title="ファイルを選択">
-                        <img class="imgicon" src="{{ asset('storage/img/img.svg') }}" width="32" height="26" alt="＋画像">
+                        <img class="imgicon" src="{{ asset('storage/images/imgpost.png') }}" width="40" height="40" alt="＋画像">
                     </span>
                     <input type="file" id="hidn" name="img" onchange="previewFile(this);">
                 </label>
-                <button type="submit" class="postbutton2">投稿</button>
+                <button type="submit" class=" btn btn--red btn--radius btn--cubic">投稿</button>
             </form>
         </div>
     </div>
@@ -47,14 +47,17 @@
                 </div>
                 <div class="post-content">
                     <p>{{ $post->content }}</p>
-                    <img src="{{asset('/storage/images/'.$post->img)}}" width="550px" height="auto">
+                    @if(empty($post->img))
+                    
+                    @else
+                        <img src="{{asset('/storage/images/'.$post->img)}}" class="topimg">
+                    @endif
 
                 </div>
             </div>
 
             @endforeach
             @endif
-            <a href="/community">コミュニティ作成</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
@@ -63,7 +66,7 @@
     </div>
 </div>
 
-<span id="openModalBtn" class="plus-button icon"><span class="text">➕</span></span>
+<span id="openModalBtn" class="plus-button icon"><span class="text"><img src="{{ asset('storage/images/post.png') }}" alt="投稿する" height="100px" width="100px"></span></span>
 <script src="{{ asset('/js/image.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/post.js') }}"></script>
