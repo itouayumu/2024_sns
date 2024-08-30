@@ -39,13 +39,13 @@
     <div class="sidebar">
         <div class="recommended-communities">
             <h2>おすすめのコミュニティ</h2>
-            @if($community->isEmpty())
+            @if($recommendation_community->isEmpty())
             <p>コミュニティがありません。作成してみましょう</p>
             @else
-            @foreach($community as $communitys)
-            <img src="{{ asset('/storage/images/'.$communitys->icon) }}" alt="アイコン" class="community-icon">
-            <span><a href="{{ url('join_community', ['id' => $communitys->id]) }}">{{ $communitys->community_name }}</a></span>
-            <span class="members-count">{{ $communitys->participants_count }}人参加中</span>
+            @foreach($recommendation_community as $recommendation_communitys)
+            <img src="{{ asset('/storage/images/'.$recommendation_communitys->icon) }}" alt="アイコン" class="community-icon">
+            <span><a href="{{ url('join_community', ['id' => $recommendation_communitys->id]) }}">{{ $recommendation_communitys->community_name }}</a></span>
+            <span class="members-count">{{ $recommendation_communitys->participants_count }}人参加中</span>
             @endforeach
             @endif
 
