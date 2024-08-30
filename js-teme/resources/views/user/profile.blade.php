@@ -61,14 +61,18 @@
 
                 <div>
                     <span class="username">{{ $post->user->name }}</span>
-                    <span class="user_id">ユーザーID</span>
+                    <span class="user_id">{{ $userInfo->users_id }}</span>
 
                 </div>
                 <span class="post-date">{{ $post->created_at }}</span>
             </div>
             <div class="post-content">
                 <p>{{ $post->content }}</p>
-                <img src="{{asset('/storage/images/'.$post->img)}}" width="auto" height="auto">
+                @if(empty($post->img))
+                    
+                    @else
+                        <img src="{{asset('/storage/images/'.$post->img)}}" class="topimg">
+                    @endif
             </div>
         </div>
 

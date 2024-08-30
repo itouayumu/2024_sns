@@ -53,8 +53,7 @@
 .plus-button {
     position: fixed;
     bottom: 20px;
-    left: 90%;
-    background-color: #00fff2;
+    left: 87%;
     border: none;
     color: white;
     padding: 15px;
@@ -64,6 +63,11 @@
     height: 50px;
     width: 50px;
     text-align: center;
+    bottom: 90px;
+    transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+}
+.plus-button:hover {
+    transform: translateY(-5px);
 }
 
 #post-content {
@@ -143,3 +147,17 @@
     height: auto;
     width: auto;
 }
+
+button {
+    display: inline-block; /* ボタンを横並びにする */
+    border: none; /* 枠線をなくす */
+    border-radius: 5px; /* 角丸をつける */
+    padding: 10px 15px; /* ボタンの内側の余白 */
+    margin: 5px; /* ボタン同士の余白 */
+    background-color: #ff5efc; /* ボタンの背景色 */
+    color: white; /* ボタンの文字色 */
+    text-align: center; /* ボタンのテキストを中央揃えにする */
+    text-decoration: none; /* テキストに下線をつけない */
+    font-size: 15px; /* テキストのフォントサイズ */
+    cursor: pointer; /* マウスポインタを変更する */
+  }

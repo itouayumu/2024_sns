@@ -155,3 +155,16 @@ select{
   border:solid#ffa640 1px;
   outline: none;
 }
+button {
+  display: inline-block; /* ボタンを横並びにする */
+  border: none; /* 枠線をなくす */
+  border-radius: 5px; /* 角丸をつける */
+  padding: 10px 15px; /* ボタンの内側の余白 */
+  margin: 5px; /* ボタン同士の余白 */
+  background-color: #ff5efc; /* ボタンの背景色 */
+  color: white; /* ボタンの文字色 */
+  text-align: center; /* ボタンのテキストを中央揃えにする */
+  text-decoration: none; /* テキストに下線をつけない */
+  font-size: 15px; /* テキストのフォントサイズ */
+  cursor: pointer; /* マウスポインタを変更する */
+}

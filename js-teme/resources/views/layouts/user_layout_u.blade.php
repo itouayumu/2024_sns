@@ -47,16 +47,6 @@
             <h2>おすすめのユーザー</h2>
             <ul>
                 <li>
-                    @if(session('recommendation_users'))
-                    <ul>
-                        @foreach(session('recommendation_users') as $user)
-                        <li> <a href="{{ route('other_profile', ['id' => $user->id]) }}" class="username">{{ $user->name }}</a></li>
-                        @endforeach
-                    </ul>
-                    @else
-                    <p>No recommended users found.</p>
-                    @endif
-
 
                 </li>
             </ul>

@@ -29,9 +29,9 @@ html{
   }
   
   .timeline {
-    margin-top: 20px;
-    height: 300px;
-    overflow: auto;
+    margin-top: -10px;
+    height: 400px;
+    overflow:scroll;
     background-color: rgb(225, 251, 255);
     width: 87%;
     margin-left: 15%;
@@ -86,7 +86,7 @@ html{
     background-color: #fff;
     text-align: center;
     width: 100%;
-    margin-left: 30px
+    margin-left: 10px
   }
   .title{
     background-color: aquamarine;

@@ -49,13 +49,13 @@ html, body {
 /* .menu要素をhedの一番下に配置 */
 .menu {
     position: absolute;
-    bottom: 50px; /* 親要素の下から50pxの位置に配置 */
+    padding: 10px;
     width: 100%;
     display: flex;
-    justify-content: center; /* アイコンを中央に配置 */
-    padding: 10px 0;
-    font-size: 4vw;
-}
+    justify-content: space-around;
+    bottom: 70px;
+    right: 10px;
+  }
 
 /* メッセージ表示エリア */
 .tork {

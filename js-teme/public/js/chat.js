@@ -67,6 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
         postMessage(communityId, content);
     });
 
+    function convertUrlsToLinks(text) {
+        const urlPattern = /(https?:\/\/[^\s]+)/g;
+        return text.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
+    }
+
     function fetchMessages(communityId) {
         fetch(`/communities/${communityId}/messages`)
             .then(response => response.json())
@@ -83,7 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         messageDiv.classList.add('other');
                     }
 
-                    messageDiv.innerHTML = `<div class="message-content"><p>${message.user.name}: ${message.content}</p></div>`;
+                    // Convert URLs to clickable links
+                    const contentWithLinks = convertUrlsToLinks(message.content);
+
+                    messageDiv.innerHTML = `<div class="message-content"><p>${message.user.name}: ${contentWithLinks}</p></div>`;
                     messageContainer.appendChild(messageDiv);
                 });
             })
@@ -111,7 +119,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', 'me');  // Show the new message on the right
 
-            messageDiv.innerHTML = `<div class="message-content"><p>${newMessage.user.name}: ${newMessage.content}</p></div>`;
+            // Convert URLs to clickable links
+            const contentWithLinks = convertUrlsToLinks(newMessage.content);
+
+            messageDiv.innerHTML = `<div class="message-content"><p>${newMessage.user.name}: ${contentWithLinks}</p></div>`;
             messageContainer.appendChild(messageDiv);
             textarea.value = '';  // 送信後にテキストエリアをクリア
         })
