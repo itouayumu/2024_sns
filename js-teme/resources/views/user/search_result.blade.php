@@ -1,5 +1,3 @@
-@extends('layouts.user_layout_u')
-
 @section('title','Index')
 
 @section('css')
@@ -62,7 +60,7 @@
             <div class="post">
                 <div class="user-info">
                     <div>
-                        <span class="username">{{ $c->community_name }}</span>
+                        <span class="username"><a href="{{ url('join_community' ,['id' => $c->id]) }}">{{ $c->community_name }}</a></span>
                         <span class="user-id">{{ $c->id }}</span>
                     </div>
                 </div>

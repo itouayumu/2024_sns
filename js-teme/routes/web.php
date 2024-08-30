@@ -31,7 +31,6 @@ Route::post('/post_action', [PostController::class, 'post_action'])->name('post_
 Route::post('/achieve_action', [achieveController::class, 'achieve_action'])->name('achieve_action');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/user_profile', [UserController::class, 'user_profile']);
 Route::get('/posts/latest', [HomeController::class, 'latestPosts']);
 Route::get('/user_achieve', [achieveController::class, 'achieve']);
@@ -46,3 +45,5 @@ Route::post('/logout', function () {
 })->name('logout');
 Route::post('/search_result', [SearchController::class, 'search_result'])->name('search_result');
 Route::get('/other_profile/{id}', [UserController::class, 'other_profile'])->name('other_profile');
+Route::get('/follow_function/{id}', [UserController::class, 'follow_function'])->name('follow_function');
+Route::get('/follow_cancellation/{id}', [UserController::class, 'follow_cancellation'])->name('follow_cancellation');

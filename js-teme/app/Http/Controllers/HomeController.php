@@ -9,6 +9,9 @@ use App\Models\Post;
 use App\Models\UserInformation;
 use App\Models\Community;
 use App\Models\User;
+use App\Models\user_achieve;
+
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -43,6 +46,15 @@ class HomeController extends Controller
             $id = Auth::id();
             $user = User::where('id', $id)->first();
             $userInfo = UserInformation::where('user_id', $id)->first();
+            $genreId = $userInfo->genre_id;
+            $recommendation = UserInformation::where('genre_id', $genreId)
+                ->where('user_id', '!=', $id)
+                ->get();
+            $recommendation_users = User::whereIn('id', $recommendation->pluck('user_id'))->get();
+            Session::put('recommendation_users', $recommendation_users);
+            $achievements = user_achieve::where('user_id', $id)->exists();
+            $achieve_tag = ($achievements) ? true : false;
+            Session::put('achieve_tag', $achieve_tag);
             return view('user.top', ['posts' => $posts, 'community' => $community, 'user' => $user, 'userInfo' => $userInfo]);
         } else {
             return redirect('/login');
