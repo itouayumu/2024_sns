@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const textarea = document.querySelector('.text textarea');
     const communityIdInput = document.getElementById('community_id');
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    let currentCommunityId = null;
+    let autoUpdateInterval;
 
     // Debugging: Check if the elements exist
     if (!textarea) {
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // コミュニティIDをフォームに設定
             communityIdInput.value = communityId;
+            currentCommunityId = communityId;
 
             // 既存の選択状態をクリア
             communityLinks.forEach(link => link.classList.remove('active'));
@@ -41,6 +44,12 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('active');
 
             fetchMessages(communityId);
+
+            // Clear any existing interval to avoid multiple intervals running
+            clearInterval(autoUpdateInterval);
+
+           //自動更新
+            autoUpdateInterval = setInterval(() => fetchMessages(communityId), 1000);
         });
     });
 

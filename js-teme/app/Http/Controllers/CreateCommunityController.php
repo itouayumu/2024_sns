@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Community;
 use App\Models\Participant_Community;
+use App\Models\UserInformation;
+
+
 
 class CreateCommunityController extends Controller
 {
@@ -15,11 +18,17 @@ class CreateCommunityController extends Controller
     {
         $user = Auth::user();
         if ($user) {
+            $login_id = Auth::id();
             $items = DB::table('genre')->get();
-            $community = Community::where('delete_flag', false)
+            $recommendation_community = Community::where('delete_flag', false)
                 ->orderBy('created_at', 'desc')
+                ->inRandomOrder()
+                ->take(5)
+                ->withCount('participants')
                 ->get();
-            return view('user.community', ['items' => $items, 'community' => $community]);
+            $userInfo = UserInformation::where('user_id', $login_id)->first();
+
+            return view('user.community', ['items' => $items, 'recommendation_community' => $recommendation_community, 'userInfo' => $userInfo]);
         } else {
             return redirect('/login');
         };
@@ -67,7 +76,14 @@ class CreateCommunityController extends Controller
             if ($join_community) {
                 $join_flag = true;
             }
-            return view('user.join_community', ['community' => $community, 'join_flag' => $join_flag]);
+            $recommendation_community = Community::where('delete_flag', false)
+                ->orderBy('created_at', 'desc')
+                ->inRandomOrder()
+                ->take(5)
+                ->withCount('participants')
+                ->get();
+            $userInfo = UserInformation::where('user_id', $user_id)->first();
+            return view('user.join_community', ['community' => $community, 'join_flag' => $join_flag, 'userInfo' => $userInfo, 'recommendation_community' => $recommendation_community]);
         } else {
             return redirect('/login');
         }
