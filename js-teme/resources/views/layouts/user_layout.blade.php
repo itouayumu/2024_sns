@@ -12,24 +12,26 @@
 </head>
 
 <body>
-<div class="layout">
+    <div class="layout">
         <header class="header">
             <div class="header-left">
-            <a href="/">
-                    <img src="http://127.0.0.1:8000/storage/images/SNS_rogo.png" alt="logo" class="logo" width="150px" height="auto" >
-                </a>            </div>
+                <a href="/">
+                    <img src="http://127.0.0.1:8000/storage/images/SNS_rogo.png" alt="logo" class="logo" width="150px" height="auto">
+                </a>
+            </div>
 
             <div class="header-right">
-            <form>
-                    <select>
-                        <option value="1">ユーザー</option>
-                        <option value="2">投稿</option>
-                        <option value="3">コミュニティ</option>
+                <form action="{{ route('search_result') }}" method="POST" enctype="multipart/form-data" class="form">
+                    @csrf
+                    <select name="kinds">
+                        <option value="user">ユーザー</option>
+                        <option value="post">投稿</option>
+                        <option value="community">コミュニティ</option>
                     </select>
-                    <input type="text" name="search2" class="search">
-                    <button  class="button">検索</button>
+                    <input type="text" name="search" class="search2">
+                    <button type="submit" id="modalOpen" class="button">検索</button>
                 </form>
-                <img class="icon" src="http://127.0.0.1:8000/storage/images/test_icon.jpg" alt="ユーザーアイコン">
+                <a href="/user_profile"><img class="icon" src="{{asset('/storage/images/'.$userInfo->icon)}}" alt="ユーザーアイコン"></a>
             </div>
         </header>
     </div>
@@ -38,14 +40,15 @@
         <div class="recommended-communities">
             <h2>おすすめのコミュニティ</h2>
             @if($community->isEmpty())
-                    <p>コミュニティがありません。作成してみましょう</p>
-                    @else
-                    @foreach($community as $communitys)
-                    <img src="path/to/icon.png" alt="アイコン" class="community-icon">
-                    <span><a href="{{ url('join_community' ,['id' => $communitys->id]) }}">{{$communitys->community_name}}</a></span>
-                    <span class="members-count">20人参加中</span>
-                    @endforeach
-                    @endif
+            <p>コミュニティがありません。作成してみましょう</p>
+            @else
+            @foreach($community as $communitys)
+            <img src="{{ asset('/storage/images/'.$communitys->icon) }}" alt="アイコン" class="community-icon">
+            <span><a href="{{ url('join_community', ['id' => $communitys->id]) }}">{{ $communitys->community_name }}</a></span>
+            <span class="members-count">{{ $communitys->participants_count }}人参加中</span>
+            @endforeach
+            @endif
+
         </div>
         <div class="menu-icons">
             <span class="icon">💬</span>
@@ -65,11 +68,11 @@
             </div>
         </div>
     </div>
- 
-        @yield('content')
+
+    @yield('content')
     </div>
-    
-    
+
+
     <canvas id="particleCanvas"></canvas>
 
     <script src="{{ asset('/js/header.js') }}"></script>
