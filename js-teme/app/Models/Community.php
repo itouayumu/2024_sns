@@ -31,4 +31,8 @@ class Community extends Model
     {
         return $this->hasMany(CommunityChat::class);
     }
+    public function participants()
+    {
+        return $this->hasMany(Participant_Community::class, 'community_id', 'id');
+    }
 }
