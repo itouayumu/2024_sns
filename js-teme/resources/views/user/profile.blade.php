@@ -20,6 +20,11 @@
         @endif
         <div class="user-details">
             <div class="details1">
+                @if(session('achieve_tag'))
+                あるよ
+                else
+                ないよ
+                @endif
                 <p>ユーザー名: {{ $items->name }}</p>
                 <p>ユーザーID: {{ $userInfo->users_id }}</p>
                 @if ($other_flag)
