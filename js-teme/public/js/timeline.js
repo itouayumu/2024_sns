@@ -21,13 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
             posts.forEach(post => {
                 const userIcon = post.user_info && post.user_info.icon ? '/storage/images/' + post.user_info.icon : '';
                 const postImg = post.img ? '/storage/images/' + post.img : '';
+                const userId = post.user ? post.user.id : null;
+                const profileUrl = userId ? `/other_profile/${userId}` : '#'; // ユーザーIDを使ってURLを手動で作成
 
                 postsHtml += `
                     <div class="post">
                         <div class="user-info">
                             <img src="${userIcon}" alt="ユーザー画像" class="user_icon" width="32" height="26">
                             <div>
-                                <span class="username">${post.user ? post.user.name : 'Unknown User'}</span>
+                                <span class="username"><a href="${profileUrl}"> ${post.user ? post.user.name : 'Unknown User'}</a></span>
                                 <span class="user-id">${post.user_info ? post.user_info.users_id : 'Unknown ID'}</span>
                             </div>
                             <span class="post-date">${post.created_at}</span>
@@ -45,5 +47,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch latest posts every 1 second
-    setInterval(fetchLatestPosts, 10000);
+    setInterval(fetchLatestPosts, 1000);
 });
