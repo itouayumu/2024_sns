@@ -1,0 +1,19 @@
+*{
+    overflow: hidden;
+}
+.community-image{
+    height: 200px;
+    width: auto;
+}
+.main{
+    margin-top: 10vw;
+    margin-left: 45vw;
+
+}
+a{
+    color: rgb(0, 0, 0);
+}
+
+.chat:hover{
+    background-color: rgb(186, 186, 186);
+}
