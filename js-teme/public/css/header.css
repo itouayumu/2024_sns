@@ -168,3 +168,6 @@ button {
   font-size: 15px; /* テキストのフォントサイズ */
   cursor: pointer; /* マウスポインタを変更する */
 }
+button:hover{
+  background-color:#ca46c8;
+}
