@@ -18,6 +18,9 @@ class SearchController extends Controller
         $id = Auth::id();
         $search = $request->input('search');
         $kinds = $request->input('kinds');
+        if (empty($search)) {
+            return redirect()->back()->with('error', 'Search term cannot be empty.');
+        }
         $userInfo = UserInformation::where('user_id', $id)->first();
         if ($kinds == 'user') {
             $user = User::where('name', 'like', "%$search%")->get();

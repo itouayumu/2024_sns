@@ -50,8 +50,8 @@
                     @if(session('recommendation_users'))
                     <ul>
                         @foreach(session('recommendation_users') as $user)
-                        <li><img src="{{ asset('/storage/images/'.$user->userInfo->icon) }}" alt="アイコン" class="community-icon">
-                            <a href="{{ route('other_profile', ['id' => $user->id]) }}" class="username">{{ $user->name }}</a>
+                        <li><img src="{{ asset('/storage/images/'.$user->userInfo->icon) }}" alt="アイコン" class="user_icon" width="32" height="26">
+                            <span><a href="{{ route('other_profile', ['id' => $user->id]) }}" class="username">{{ $user->name }}</a></span>
                         </li>
                         @endforeach
                     </ul>
@@ -63,7 +63,7 @@
         </div>
         <div class="menu-icons">
             <span class="icon"><a href="/talk">💬</a></span>
-            <span class="icon">👤</span>
+            <span class="icon"><a href="/community"> 👤</a></span>
             <span class="icon">🔔</span>
         </div>
     </div>
