@@ -14,9 +14,8 @@ html, body {
 }
 
 .hed {
-    padding: 20px;
     background-color: #f0f0f0;
-    width: 20vw;
+    width: 335px;
     position: relative; /* 子要素(.menu)の絶対配置を基準にする */
     min-height: 150px; /* ヘッダーの高さを確保 */
 }
@@ -74,11 +73,11 @@ html, body {
     background-color: white;
     padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: 23.5vw;
+    margin-left: 27vw;
 }
 
 textarea {
-    width: 80%;
+    width: 75%;
     height: 40px;
     padding: 5px;
     border-radius: 5px;
