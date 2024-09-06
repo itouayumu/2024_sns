@@ -22,9 +22,9 @@
             @endforeach
             @endif
             <div class="menu">
-                <span class="icon"><a href="/talk">💬</a></span>
-                <span class="icon">👤</span>
-                <span class="icon">🔔</span>
+            <span class="icon"><a href="/talk">💬</a></span>
+            <span class="icon"><a href="/community"> 👤</a></span>
+            <span class="icon">🔔</span>
             </div>
         </div>
         <div class="back"></div>
