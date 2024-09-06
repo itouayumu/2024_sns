@@ -52,7 +52,9 @@
             <p class="chat">
                 <a href="{{ url('join_community', ['id' => $recommendation_communitys->id]) }}">
                     <img src="{{ asset('/storage/images/'.$recommendation_communitys->icon) }}" alt="アイコン" class="community-icon">
+
                     <span style="color: #000;">
+
                         {{ $recommendation_communitys->community_name }}
                     </span>
                     <span class="members-count">{{ $recommendation_communitys->participants_count }}人参加中</span>
