@@ -65,8 +65,8 @@
 
         </div>
         <div class="menu-icons">
-            <span class="icon">💬</span>
-            <span class="icon">👤</span>
+        <span class="icon"><a href="/talk">💬</a></span>
+            <span class="icon"><a href="/community"> 👤</a></span>
             <span class="icon">🔔</span>
         </div>
     </div>
