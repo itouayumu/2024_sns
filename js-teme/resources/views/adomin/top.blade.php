@@ -19,8 +19,9 @@
             </div>
         </header>
     </div>
-    <div class="main">    
-    <a href="achieve">実績称号管理</a>
+    <div class="main">
+        <a href="achieve">実績称号管理</a>
+        <a href="genre">ジャンル</a>
     </div>
 </body>
 

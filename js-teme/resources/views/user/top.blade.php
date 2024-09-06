@@ -40,7 +40,7 @@
                 <div class="user-info">
                     <img src="{{ asset('/storage/images/' .$post->userInfo->icon) }}" alt="ユーザー画像" class="user_icon" width="32" height="26">
                     <div>
-                        <span class="username">{{ $post->user->name }}</span>
+                        <span class="username"><a href="{{ route('other_profile', ['id' => $post->user->id]) }}"> {{ $post->user->name }}</a></span>
                         <span class="user-id">{{ $post->userInfo->users_id }}</span>
                     </div>
                     <span class="post-date">{{ $post->created_at }}</span>
@@ -48,9 +48,9 @@
                 <div class="post-content">
                     <p>{{ $post->content }}</p>
                     @if(empty($post->img))
-                    
+
                     @else
-                        <img src="{{asset('/storage/images/'.$post->img)}}" class="topimg">
+                    <img src="{{asset('/storage/images/'.$post->img)}}" class="topimg">
                     @endif
 
                 </div>

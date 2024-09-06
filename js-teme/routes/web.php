@@ -47,3 +47,5 @@ Route::post('/search_result', [SearchController::class, 'search_result'])->name(
 Route::get('/other_profile/{id}', [UserController::class, 'other_profile'])->name('other_profile');
 Route::get('/follow_function/{id}', [UserController::class, 'follow_function'])->name('follow_function');
 Route::get('/follow_cancellation/{id}', [UserController::class, 'follow_cancellation'])->name('follow_cancellation');
+Route::get('/genre', [adomincontroller::class, 'genre']);
+Route::post('/genre/store', [adomincontroller::class, 'store'])->name('genre.store');
