@@ -18,7 +18,7 @@
     <div class="layout">
         <!-- ヘッダー部分 -->
         <header class="header">
-            <img src="{{ asset('storage/img/SNS_rogo.png')}}" alt="logo" class="logo" width="150px" height="auto">
+            <img src="{{ asset('/storage/images/logo.png')}}" alt="logo" class="logo" width="150px" height="auto">
             <div class="headertext">
                 <!-- 任意で追加可能なテキスト等 -->
             </div>
