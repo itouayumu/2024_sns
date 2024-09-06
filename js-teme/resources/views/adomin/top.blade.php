@@ -14,7 +14,7 @@
     <div class="layout">
 
         <header class="header">
-            <img src="{{ asset('storage/img/SNS_rogo.png') }}" alt="logo" class="logo" width="150px" height="auto">
+            <img src="{{ asset('/storage/images/logo.png') }}" alt="logo" class="logo" width="150px" height="auto">
             <div class="headertext">
             </div>
         </header>
