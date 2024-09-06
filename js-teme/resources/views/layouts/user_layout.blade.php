@@ -17,7 +17,7 @@
             <div class="header-left">
 
                 <a href="/">
-                    <img src="http://127.0.0.1:8000/storage/images/SNS_rogo.png" alt="logo" class="logo" width="150px" height="auto">
+                    <img src="http://127.0.0.1:8000/storage/images/logo.png" alt="logo" class="logo" width="150px" height="auto">
                 </a>
             </div>
 
@@ -33,6 +33,10 @@
                     <input type="text" name="search" class="search2">
                     <button type="submit" id="modalOpen" class="button">検索</button>
                 </form>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">ログアウト</button>
+                </form>
                 <a href="/user_profile"><img class="icon" src="{{asset('/storage/images/'.$userInfo->icon)}}" alt="ユーザーアイコン"></a>
             </div>
         </header>
@@ -45,9 +49,15 @@
             <p>コミュニティがありません。作成してみましょう</p>
             @else
             @foreach($recommendation_community as $recommendation_communitys)
-            <img src="{{ asset('/storage/images/'.$recommendation_communitys->icon) }}" alt="アイコン" class="community-icon">
-            <span><a href="{{ url('join_community', ['id' => $recommendation_communitys->id]) }}">{{ $recommendation_communitys->community_name }}</a></span>
-            <span class="members-count">{{ $recommendation_communitys->participants_count }}人参加中</span>
+            <p class="chat">
+                <a href="{{ url('join_community', ['id' => $recommendation_communitys->id]) }}">
+                    <img src="{{ asset('/storage/images/'.$recommendation_communitys->icon) }}" alt="アイコン" class="community-icon">
+                    <span style="color: #000;">
+                        {{ $recommendation_communitys->community_name }}
+                    </span>
+                    <span class="members-count">{{ $recommendation_communitys->participants_count }}人参加中</span>
+                </a>
+            </p>
             @endforeach
             @endif
 

@@ -19,7 +19,7 @@
                 <img id="preview" class="img_datareg" width="auto" height="200px">
                 <label>
                     <span class="filelabel" title="ファイルを選択">
-                    <img class="imgicon" src="{{ asset('storage/images/imgpost.png') }}" width="40" height="40" alt="＋画像">
+                        <img class="imgicon" src="{{ asset('storage/images/imgpost.png') }}" width="40" height="40" alt="＋画像">
                     </span>
                     <input type="file" id="hidn" name="img" onchange="previewFile(this);">
                 </label>
@@ -36,8 +36,8 @@
             <div class="post">
                 <div class="user-info">
                     <div>
+                        <img src="{{ asset('/storage/images/'.$u->userInfo->icon) }}" alt="アイコン" class="community-icon">
                         <a href="{{ route('other_profile', ['id' => $u->id]) }}" class="username">{{ $u->name }}</a>
-                        <span class="user-id">{{ $u->id }}</span>
                     </div>
                 </div>
             </div>
@@ -48,9 +48,11 @@
             <div class="post">
                 <div class="user-info">
                     <div>
-                        <span class="username">{{ $p->content }}</span>
-                        <span class="user-id">{{ $p->id }}</span>
-                        {{ $p->user->name }}
+                        <img src="{{ asset('/storage/images/'.$p->userInfo->icon) }}" alt="アイコン" class="community-icon">
+                        <span class="username"><a href="{{ route('other_profile', ['id' => $p->user->id]) }}">{{ $p->user->name }}</a></span>
+                        <div class="post-content">
+                            <p class="username">{{ $p->content }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,8 +63,8 @@
             <div class="post">
                 <div class="user-info">
                     <div>
+                        <img src="{{ asset('/storage/images/'.$c->icon) }}" alt="アイコン" class="community-icon">
                         <span class="username"><a href="{{ url('join_community' ,['id' => $c->id]) }}">{{ $c->community_name }}</a></span>
-                        <span class="user-id">{{ $c->id }}</span>
                     </div>
                 </div>
             </div>
@@ -71,8 +73,6 @@
             @else
             <p>検索結果はありません</p>
             @endif
-
-            <a href="/community">コミュニティ作成</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>

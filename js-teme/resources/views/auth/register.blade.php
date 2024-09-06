@@ -87,7 +87,7 @@
                                 <img id="preview" class="img_datareg" width="100px" height="100px">
                                 <label>
                                     <span class="filelabel" title="ファイルを選択">
-                                    <img class="imgicon" src="{{ asset('storage/img/img.svg') }}" width="32" height="26" alt="＋画像">
+                                    <img class="imgicon" src="{{ asset('storage/images/imgpost.png') }}" width="32" height="26" alt="＋画像">
                                     </span>
                                     <input type="file" name="icon" id="hidn" onchange="previewFile(this);">
                                 </label>
