@@ -19,7 +19,6 @@ body {
   align-items: center;
   padding: 10px 20px;
   background-color: #b6ffd8;
-  height: 70px;
 }
 
 .header-left {
@@ -72,14 +71,14 @@ body {
 
 .sidebar {
   position: fixed;
-  top: 90px;
+  top: 95px;
   width: 320px;
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-  height: 90%;
+  height: 80%;
 }
 
 .recommended-communities {
@@ -123,11 +122,11 @@ body {
 
 .menu-icons {
   position: absolute;
-  padding: 10px;
+
   width: 100%;
   display: flex;
   justify-content: space-around;
-  bottom: 50px;
+  bottom: 0;
 }
 
 .icon {
@@ -171,3 +170,9 @@ button {
 button:hover{
   background-color:#ca46c8;
 }
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
